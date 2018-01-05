@@ -1,0 +1,11 @@
+¹Ø¼ü´Ê            ÊéºÅË÷Òý
+algorithms        034
+analysi           067
+analysis          034£¬050£¬067
+computer          005£¬034
+data              005£¬010£¬023
+design            034
+fundamentals      023
+introduction      010£¬050
+numerical         050£¬067£¬067
+structures        005£¬010£¬023

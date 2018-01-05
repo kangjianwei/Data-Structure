@@ -1,0 +1,7 @@
+ È ∫≈                      È √˚
+ 005  Computer Data Structures
+ 010  Introduction to Data Structures
+ 023  Fundamentals of Data Structures
+ 034  The Design and Analysis of Computer Algorithms
+ 050  Introduction to Numerical Analysis
+ 067  Numerical Analysis
