@@ -1,0 +1,6 @@
+图类型→0（有向图）
+顶点数→10
+弧数→13
+弧是否带有其他信息→0
+顶点集→◤A，B，C，D，E，F，G，H，I，J◢
+弧的集合→◤A，C◢◤A，D◢◤A，E◢◤B，F◢◤B，G◢◤B，I◢◤B，J◢◤C，H◢◤D，G◢◤E，G◢◤G，H◢◤G，I◢◤H，J◢
