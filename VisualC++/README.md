@@ -30,3 +30,5 @@
 ![VC03](image/VC03.png)    
 ![VC04](image/VC04.png)    
 ![VC05](image/VC05.png)    
+5. 让输出显示在控制台上    
+![VC06](image/VC06.png)    
