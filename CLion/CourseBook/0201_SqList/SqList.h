@@ -4,8 +4,8 @@
  * 包含算法: 2.3、2.4、2.5、2.6
  =============================*/
 
-#ifndef SEQUENCELIST_H
-#define SEQUENCELIST_H
+#ifndef SQLIST_H
+#define SQLIST_H
 
 #include <stdio.h>
 #include <stdlib.h>     // 提供malloc、realloc、free、exit原型

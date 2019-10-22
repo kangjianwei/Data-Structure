@@ -4,8 +4,8 @@
  * 包含算法: 2.8、2.9、2.10、2.11
  ================================*/
 
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef LINKLIST_H
+#define LINKLIST_H
 
 #include <stdio.h>
 #include <stdlib.h>     //提供malloc、realloc、free、exit原型
