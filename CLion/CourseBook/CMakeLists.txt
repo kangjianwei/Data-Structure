@@ -19,3 +19,7 @@ add_subdirectory(0306_Hanoi)
 add_subdirectory(0307_LinkQueue)
 add_subdirectory(0308_SqQueue)
 add_subdirectory(0309_BankQueuing)
+
+add_subdirectory(0401_SString)
+add_subdirectory(0402_HString)
+add_subdirectory(0403_LString)
