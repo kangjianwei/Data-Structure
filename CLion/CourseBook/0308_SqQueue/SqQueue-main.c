@@ -9,20 +9,20 @@ int main(int argc, char** argv) {
     int i;
     QElemType e;
     
-    printf("████████ 函数 InitQueue 测试...\n");
+    printf("████████ 函数 InitQueue \n");
     {
         printf("█ 初始化循环顺序队列 Q ...\n");
         InitQueue(&Q);
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 QueueEmpty 测试...\n");
+    printf("████████ 函数 QueueEmpty \n");
     {
         QueueEmpty(Q) ? printf("█ Q 为空！！\n") : printf("█ Q 不为空！\n");
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 EnQueue 测试...\n");
+    printf("████████ 函数 EnQueue \n");
     {
         for(i = 1; i <= 6; i++) {
             EnQueue(&Q, 2 * i);
@@ -31,21 +31,21 @@ int main(int argc, char** argv) {
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 QueueTraverse 测试...\n");
+    printf("████████ 函数 QueueTraverse \n");
     {
         printf("█ Q 中的元素为：Q = ");
         QueueTraverse(Q, PrintElem);
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 QueueLength 测试...\n");
+    printf("████████ 函数 QueueLength \n");
     {
         i = QueueLength(Q);
         printf("█ Q 的长度为 %d \n", i);
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 DeQueue 测试...\n");
+    printf("████████ 函数 DeQueue \n");
     {
         DeQueue(&Q, &e);
         printf("█ 队头元素 \"%d\" 出队...\n", e);
@@ -54,14 +54,14 @@ int main(int argc, char** argv) {
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 GetHead 测试...\n");
+    printf("████████ 函数 GetHead \n");
     {
         GetHead(Q, &e);
         printf("█ 队头元素的值为 \"%d\" \n", e);
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 ClearQueue 测试...\n");
+    printf("████████ 函数 ClearQueue \n");
     {
         printf("█ 清空 Q 前：");
         QueueEmpty(Q) ? printf(" Q 为空！！\n") : printf(" Q 不为空！\n");
@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 DestroyQueue 测试...\n");
+    printf("████████ 函数 DestroyQueue \n");
     {
         printf("█ 销毁 Q 前：");
         Q.base != NULL ? printf(" Q 存在！\n") : printf(" Q 不存在！！\n");
