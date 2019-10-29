@@ -47,6 +47,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0402_HString", "0402_HStrin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0403_LString", "0403_LString\0403_LString.vcxproj", "{6D29CF1A-DFF3-4730-A587-EEEA5B3673F2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0404_KMP", "0404_KMP\0404_KMP.vcxproj", "{5D2A1F0B-F177-43A9-873A-56C7E08E6987}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0405_WordList", "0405_WordList\0405_WordList.vcxproj", "{FA2740D7-2D96-4F57-AE79-FCDA5C13CA86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -145,6 +149,14 @@ Global
 		{6D29CF1A-DFF3-4730-A587-EEEA5B3673F2}.Debug|Win32.Build.0 = Debug|Win32
 		{6D29CF1A-DFF3-4730-A587-EEEA5B3673F2}.Release|Win32.ActiveCfg = Release|Win32
 		{6D29CF1A-DFF3-4730-A587-EEEA5B3673F2}.Release|Win32.Build.0 = Release|Win32
+		{5D2A1F0B-F177-43A9-873A-56C7E08E6987}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D2A1F0B-F177-43A9-873A-56C7E08E6987}.Debug|Win32.Build.0 = Debug|Win32
+		{5D2A1F0B-F177-43A9-873A-56C7E08E6987}.Release|Win32.ActiveCfg = Release|Win32
+		{5D2A1F0B-F177-43A9-873A-56C7E08E6987}.Release|Win32.Build.0 = Release|Win32
+		{FA2740D7-2D96-4F57-AE79-FCDA5C13CA86}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FA2740D7-2D96-4F57-AE79-FCDA5C13CA86}.Debug|Win32.Build.0 = Debug|Win32
+		{FA2740D7-2D96-4F57-AE79-FCDA5C13CA86}.Release|Win32.ActiveCfg = Release|Win32
+		{FA2740D7-2D96-4F57-AE79-FCDA5C13CA86}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
