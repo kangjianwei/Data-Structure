@@ -292,19 +292,19 @@ Status StrInsert(LString* S, int pos, LString T) {
     Chunk* r;
     Chunk* s;
     int i, j, count;
-    
+
     if(pos < 1 || pos > (*S).curlen + 1) {
         return ERROR;
     }
-    
+
     // 如果待插入的串为空，则提前返回
     if(StrEmpty(T)) {
         return OK;
     }
-    
+
     // 记录待插入块的起始块和终止块
     h = t = NULL;
-    
+
     // 复制T中的块（只复制结构）
     for(r = T.head; r != NULL; r = r->next) {
         s = (Chunk*) malloc(sizeof(Chunk));
@@ -312,7 +312,7 @@ Status StrInsert(LString* S, int pos, LString T) {
             exit(OVERFLOW);
         }
         s->next = NULL;
-        
+
         if(r == T.head) {
             h = t = s;
         } else {
@@ -320,7 +320,7 @@ Status StrInsert(LString* S, int pos, LString T) {
             t = s;
         }
     }
-    
+
     // 查找S中第pos个元素所在的块（注：称为目标块），并用指针pre指向它的前驱
     if(pos >= 1 && pos <= CHUNKSIZE) {
         pre = NULL;     // 说明第pos个元素所在块为head
@@ -331,11 +331,11 @@ Status StrInsert(LString* S, int pos, LString T) {
         }
         p = pre->next;
     }
-    
+
     /*
      * 接下来，将h到t范围的块插入到pos所在的块之前
      */
-    
+
     if(pre == NULL) {
         t->next = (*S).head;
         (*S).head = h;
@@ -343,69 +343,70 @@ Status StrInsert(LString* S, int pos, LString T) {
         pre->next = h;
         t->next = p;
     }
-    
+
     if(pre == (*S).tail) {
         (*S).tail = t;
     }
-    
+
     /*
      * 移动/复制元素
      */
-    
+
     j = 0;
-    
+
     // 如果插入到了某个块的“中间”
     if((pos - 1) % CHUNKSIZE != 0) {
         // 移动目标块中pos位置之前的元素
         for(i = 1; i <= (pos - 1) % CHUNKSIZE; i++) {
             h->ch[j++] = p->ch[i - 1];
+            p->ch[i - 1] = '\0';
         }
     }
-    
+
     r = T.head;
     i = 0;
-    
+
     // 复制T中的元素到S中
     for(count = 1; count <= T.curlen; count++) {
         h->ch[j] = r->ch[i];
-        
+
         j = (j + 1) % CHUNKSIZE;
         i = (i + 1) % CHUNKSIZE;
-        
+
         if(j == 0) {
             h = h->next;
         }
-        
+
         if(i == 0) {
             r = r->next;
         }
     }
-    
+
     // 如果T中最后一个块中包含'\0'
     if(T.curlen % CHUNKSIZE != 0) {
         r = p;  // 指向目标块
         i = (pos - 1) % CHUNKSIZE;
-        
+
         // 移动目标块中pos位置及其之后的元素
         for(count = pos; count <= (*S).curlen; count++) {
             h->ch[j] = r->ch[i];
             r->ch[i] = '\0';
-            
+
             j = (j + 1) % CHUNKSIZE;
             i = (i + 1) % CHUNKSIZE;
-            
+
             if(j == 0) {
                 h = h->next;
             }
-            
+
             if(i == 0) {
                 r = r->next;
             }
         }
     }
-    
+
     (*S).curlen += T.curlen;
-    
+
     return OK;
 }
 

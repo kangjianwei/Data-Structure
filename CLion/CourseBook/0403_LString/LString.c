@@ -359,6 +359,7 @@ Status StrInsert(LString* S, int pos, LString T) {
         // 移动目标块中pos位置之前的元素
         for(i = 1; i <= (pos - 1) % CHUNKSIZE; i++) {
             h->ch[j++] = p->ch[i - 1];
+            p->ch[i - 1] = '\0';
         }
     }
     
