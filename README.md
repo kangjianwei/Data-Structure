@@ -61,7 +61,8 @@
 
 1. **本内容仅限个人学习使用，未经作者许可，不得用于商业用途**    
 2. **源码仅供参考，别抄作业**    
-3. **鼓励在Github提交[Issues](https://github.com/kangjianwei/Data-Structure/issues)来反馈，在博客上发私信未必可以及时看到**    
+3. **欢迎Star项目，并鼓励在Github提交[Issues](https://github.com/kangjianwei/Data-Structure/issues)来反馈问题，在博客上发私信未必可以及时看到**    
+![github](star.png)
 
 
 ## Commit图例
