@@ -10,10 +10,13 @@ void PrintElem(ElemType e) {
 int main(int argc, char** argv) {
     SLinkList space;    // 备用空间
     int S;              // 静态链表
-    
+
+    // S = (A-B)∪(B-A)
+    difference(space, &S, "TestData.txt");
+
     printf("S = (A-B)∪(B-A) = ");
-    difference("TestData.txt", space, &S);
     ListTraverse(space, S, PrintElem);
-    
+
     return 0;
 }
+

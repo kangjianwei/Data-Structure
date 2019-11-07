@@ -10,10 +10,10 @@ int main(int argc, char **argv) {
     printf("████████ CreatPolyn \n");
     {
         printf("█ 作为示范，创建项数为 %d 的多项式Pa...\n", m);
-        CreatPolyn("TestData_Pa.txt", &Pa, m);
+        CreatPolyn(&Pa, m, "TestData_Pa.txt");
         
         printf("█ 作为示范，创建项数为 %d 的多项式Pb...\n", n);
-        CreatPolyn("TestData_Pb.txt", &Pb, n);
+        CreatPolyn(&Pb, n, "TestData_Pb.txt");
     }
     PressEnterToContinue();
     
@@ -38,8 +38,8 @@ int main(int argc, char **argv) {
     
     printf("████████ AddPolyn \n");
     {
-        CreatPolyn("TestData_Pa.txt", &Pa, m);
-        CreatPolyn("TestData_Pb.txt", &Pb, n);
+        CreatPolyn(&Pa, m, "TestData_Pa.txt");
+        CreatPolyn(&Pb, n, "TestData_Pb.txt");
         
         AddPolyn(&Pa, &Pb);
         
@@ -51,8 +51,8 @@ int main(int argc, char **argv) {
     
     printf("████████ SubtractPolyn \n");
     {
-        CreatPolyn("TestData_Pa.txt", &Pa, m);
-        CreatPolyn("TestData_Pb.txt", &Pb, n);
+        CreatPolyn(&Pa, m, "TestData_Pa.txt");
+        CreatPolyn(&Pb, n, "TestData_Pb.txt");
 
         SubtractPolyn(&Pa, &Pb);
 
@@ -64,8 +64,8 @@ int main(int argc, char **argv) {
     
     printf("████████ MultiplyPolyn \n");
     {
-        CreatPolyn("TestData_Pa.txt", &Pa, m);
-        CreatPolyn("TestData_Pb.txt", &Pb, n);
+        CreatPolyn(&Pa, m, "TestData_Pa.txt");
+        CreatPolyn(&Pb, n, "TestData_Pb.txt");
 
         MultiplyPolyn(&Pa, &Pb);
 

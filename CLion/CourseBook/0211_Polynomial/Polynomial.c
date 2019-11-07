@@ -16,17 +16,32 @@
  *
  * 根据输入的系数和指数，创建项数为m的一元多项式
  *
+ *
  *【备注】
+ *
  * 教材中默认从控制台读取数据。
  * 这里为了方便测试，避免每次运行都手动输入数据，
- * 因而选择了从预设的文件path中读取测试数据
+ * 因而允许选择从预设的文件path中读取测试数据。
+ *
+ * 如果需要从控制台读取数据，则不需要填写可变参数，
+ * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
  */
-void CreatPolyn(char path[], Polynomial* P, int m) {
-    FILE* fp;
+void CreatPolyn(Polynomial* P, int m, ...) {
     int i;
     ElemType e;
     Position h, q;
     Link s;
+    va_list ap;
+    FILE* fp;
+    char* path = NULL;
+    int readFromConsole;    // 是否从控制台读取数据
+    
+    va_start(ap, m);
+    path = va_arg(ap, char*);
+    va_end(ap);
+    
+    // 如果没有文件路径信息，则从控制台读取输入
+    readFromConsole = path == NULL || strstr(path, "TestData") == NULL;
     
     // 初始化一个线性链表存放一元多项式
     InitList(P);
@@ -39,16 +54,27 @@ void CreatPolyn(char path[], Polynomial* P, int m) {
     e.expn = -1;
     SetCurElem(h, e);
     
-    // 打开文件，准备读取测试数据
-    fp = fopen(path, "r");
-    if(fp == NULL) {
-        exit(ERROR);
+    if(!readFromConsole) {
+        // 打开文件，准备读取测试数据
+        fp = fopen(path, "r");
+        if(fp == NULL) {
+            exit(ERROR);
+        }
+    }
+    
+    if(readFromConsole) {
+        printf("请输入 %d 个元素：\n", m);
     }
     
     // 依次录入m个有效项
     for(i = 1; i <= m; i++) {
         // 读取系数和指数信息，临时存入e
-        ReadData(fp, "%f%d", &(e.coef), &(e.expn));
+        if(readFromConsole) {
+            printf("请输入第 %d 组系数和指数：", i);
+            scanf("%f%d", &(e.coef), &(e.expn));
+        } else {
+            ReadData(fp, "%f%d", &(e.coef), &(e.expn));
+        }
         
         // 如果当前链表中不存在该指数项
         if(LocateElem(*P, e, &q, Cmp) == FALSE && q != NULL) {
@@ -60,7 +86,9 @@ void CreatPolyn(char path[], Polynomial* P, int m) {
         }
     }
     
-    fclose(fp);
+    if(!readFromConsole) {
+        fclose(fp);
+    }
 }
 
 /*
@@ -116,9 +144,9 @@ void AddPolyn(Polynomial* Pa, Polynomial* Pb) {
                 ha = qa;
                 qa = NextPos(*Pa, qa);
             }
-            break;
+                break;
                 
-            // 两者数值相等
+                // 两者数值相等
             case 0: {
                 sum = a.coef + b.coef;
                 
@@ -146,9 +174,9 @@ void AddPolyn(Polynomial* Pa, Polynomial* Pb) {
                 qa = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
+                break;
                 
-            // 多项式Pb中当前结点的指数值较小
+                // 多项式Pb中当前结点的指数值较小
             case 1: {
                 // 摘下Pb当前结点
                 DelFirst(Pb, hb, &qb);
@@ -159,7 +187,7 @@ void AddPolyn(Polynomial* Pa, Polynomial* Pb) {
                 ha = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
+                break;
         }//switch
     }//while
     
@@ -212,7 +240,7 @@ void SubtractPolyn(Polynomial* Pa, Polynomial* Pb) {
             }
                 break;
                 
-            // 两者数值相等
+                // 两者数值相等
             case 0: {
                 sum = a.coef - b.coef;
                 
@@ -240,9 +268,9 @@ void SubtractPolyn(Polynomial* Pa, Polynomial* Pb) {
                 qa = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
+                break;
                 
-            // 多项式Pb中当前结点的指数值较小
+                // 多项式Pb中当前结点的指数值较小
             case 1: {
                 // 摘下Pb当前结点
                 DelFirst(Pb, hb, &qb);
@@ -256,7 +284,7 @@ void SubtractPolyn(Polynomial* Pa, Polynomial* Pb) {
                 ha = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
+                break;
         }//switch
     }//while
     

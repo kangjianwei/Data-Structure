@@ -384,52 +384,72 @@ void ListTraverse(LinkList L, void(Visit)(ElemType)) {
  *
  * 头插法创建链表
  *
+ *
  *【备注】
+ *
  * 教材中默认从控制台读取数据。
  * 这里为了方便测试，避免每次运行都手动输入数据，
- * 因而选择了从预设的文件path中读取测试数据。
- * 另教材中的算法采用的是头插法，所以此处的实现加了后缀_Head。
+ * 因而允许选择从预设的文件path中读取测试数据。
+ *
+ * 如果需要从控制台读取数据，则不需要填写可变参数，
+ * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
  */
-Status CreateList_Head(char path[], LinkList* L, int n) {
-    FILE* fp;
+Status CreateList_Head(LinkList* L, int n, ...) {
     int i;
     LinkList p;
-    ElemType e;
+    va_list ap;
+    FILE* fp;
+    char* path = NULL;
+    int readFromConsole;    // 是否从控制台读取数据
     
-    // 建立头结点
-    *L = (LinkList) malloc(sizeof(LNode));
-    if(*L == NULL) {
-        exit(OVERFLOW);
-    }
-    (*L)->next = NULL;
+    va_start(ap, n);
+    path = va_arg(ap, char*);
+    va_end(ap);
     
-    // 打开文件，准备读取测试数据
-    fp = fopen(path, "r");
-    if(fp == NULL) {
-        return ERROR;
-    }
+    // 如果没有文件路径信息，则从控制台读取输入
+    readFromConsole = path == NULL || strstr(path, "TestData") == NULL;
     
-    for(i = 1; i <= n; ++i) {
-        // 如果成功读取到输入数据
-        if(ReadData(fp, "%d", &e) == 1) {
+    if(readFromConsole) {
+        // 建立头结点
+        *L = (LinkList) malloc(sizeof(LNode));
+        (*L)->next = NULL;
+        
+        printf("请输入%d个降序元素：", n);
+        
+        for(i = 1; i <= n; ++i) {
             // 生成新结点
             p = (LinkList) malloc(sizeof(LNode));
-            if(p == NULL) {
-                fclose(fp);
-                exit(OVERFLOW);
-            }
             
             // 填充数据，并插入到链表中
-            p->data = e;
+            scanf("%d", &(p->data));
+            
             p->next = (*L)->next;
             (*L)->next = p;
-        } else {
-            fclose(fp);
+        }
+    } else {
+        // 打开文件，准备读取测试数据
+        fp = fopen(path, "r");
+        if(fp == NULL) {
             return ERROR;
         }
+        
+        // 建立头结点
+        *L = (LinkList) malloc(sizeof(LNode));
+        (*L)->next = NULL;
+        
+        for(i = 1; i <= n; ++i) {
+            // 生成新结点
+            p = (LinkList) malloc(sizeof(LNode));
+            
+            // 填充数据，并插入到链表中
+            ReadData(fp, "%d", &(p->data));
+            
+            p->next = (*L)->next;
+            (*L)->next = p;
+        }
+        
+        fclose(fp);
     }
-    
-    fclose(fp);
     
     return OK;
 }
@@ -437,52 +457,76 @@ Status CreateList_Head(char path[], LinkList* L, int n) {
 /*
  * 尾插法创建链表
  *
+ *
  *【备注】
+ *
  * 教材中默认从控制台读取数据。
  * 这里为了方便测试，避免每次运行都手动输入数据，
- * 因而选择了从预设的文件path中读取测试数据。
+ * 因而允许选择从预设的文件path中读取测试数据。
+ *
+ * 如果需要从控制台读取数据，则不需要填写可变参数，
+ * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
  */
-Status CreateList_Tail(char path[], LinkList* L, int n) {
-    FILE* fp;
+Status CreateList_Tail(LinkList* L, int n, ...) {
     int i;
     LinkList p, q;
-    ElemType e;
+    va_list ap;
+    FILE* fp;
+    char* path = NULL;
+    int readFromConsole;    // 是否从控制台读取数据
     
-    // 建立头结点
-    *L = (LinkList) malloc(sizeof(LNode));
-    if(*L==NULL) {
-        exit(OVERFLOW);
-    }
-    (*L)->next = NULL;
+    va_start(ap, n);
+    path = va_arg(ap, char*);
+    va_end(ap);
     
-    // 打开文件，准备读取测试数据
-    fp = fopen(path, "r");
-    if(fp == NULL) {
-        return ERROR;
-    }
+    // 如果没有文件路径信息，则从控制台读取输入
+    readFromConsole = path == NULL || strstr(path, "TestData") == NULL;
     
-    for(i = 1, q = *L; i <= n; ++i) {
-        // 如果成功读取到输入数据
-        if(ReadData(fp, "%d", &e) == 1) {
+    if(readFromConsole) {
+        // 建立头结点
+        *L = (LinkList) malloc(sizeof(LNode));
+        (*L)->next = NULL;
+        
+        printf("请输入%d个升序元素：", n);
+        
+        for(i = 1, q = *L; i <= n; ++i) {
+            // 生成新结点
             p = (LinkList) malloc(sizeof(LNode));
-            if(p==NULL) {
-                fclose(fp);
-                exit(OVERFLOW);
-            }
             
             // 填充数据，并插入到链表中
-            p->data = e;
+            scanf("%d", &(p->data));
+            
             q->next = p;
             q = q->next;
-        } else {
-            fclose(fp);
+        }
+        
+        q->next = NULL;
+    } else {
+        // 打开文件，准备读取测试数据
+        fp = fopen(path, "r");
+        if(fp == NULL) {
             return ERROR;
         }
+        
+        // 建立头结点
+        *L = (LinkList) malloc(sizeof(LNode));
+        (*L)->next = NULL;
+        
+        for(i = 1, q = *L; i <= n; ++i) {
+            // 生成新结点
+            p = (LinkList) malloc(sizeof(LNode));
+            
+            // 填充数据，并插入到链表中
+            ReadData(fp, "%d", &(p->data));
+            
+            q->next = p;
+            q = q->next;
+        }
+        
+        q->next = NULL;
+        
+        fclose(fp);
     }
-    
-    q->next = NULL;
-    
-    fclose(fp);
     
     return OK;
 }

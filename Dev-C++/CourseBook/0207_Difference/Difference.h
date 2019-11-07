@@ -8,8 +8,10 @@
 #define DIFFERENCE_H
 
 #include <stdio.h>
-#include "Status.h"           //**▲01 绪论**//
-#include "SLinkList.h"        //**▲02 线性表**//
+#include <string.h>     // 提供 strstr 原型
+#include <stdarg.h>     // 提供宏va_list、va_start、va_arg、va_end
+#include "Status.h"     //**▲01 绪论**//
+#include "SLinkList.h"  //**▲02 线性表**//
 
 /*
  * ████████ 算法2.17 ████████
@@ -18,11 +20,17 @@
  *
  * 对集合A和集合B进行(A-B)∪(B-A)计算，计算结果存入静态链表S
  *
+ *
  *【备注】
+ *
  * 教材中默认从控制台读取数据。
  * 这里为了方便测试，避免每次运行都手动输入数据，
- * 因而选择了从预设的文件path中读取测试数据。
+ * 因而允许选择从预设的文件path中读取测试数据。
+ *
+ * 如果需要从控制台读取数据，则不需要填写可变参数，
+ * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
  */
-void difference(char path[], SLinkList space, int* S);
+void difference(SLinkList space, int* S, ...);
 
 #endif
+

@@ -10,15 +10,15 @@ void PrintElem(ElemType e) {
 int main(int argc, char** argv) {
     LinkList La, Lb, Lc;
     
-    int m = 5;
+    int n = 5;
     
-    printf("作为示例，La长度设定为 %d ，Lb长度设定为 %d ，创建La和Lb...\n", m, m);
+    printf("作为示例，La长度设定为 %d ，Lb长度设定为 %d ，创建La和Lb...\n", n, n);
     
-    CreateList_Head("TestData_Head.txt", &La, m);
+    CreateList_Head(&La, n, "TestData_Head.txt");
     printf("La = ");
     ListTraverse(La, PrintElem);
     
-    CreateList_Tail("TestData_Tail.txt", &Lb, m);
+    CreateList_Tail(&Lb, n, "TestData_Tail.txt");
     printf("Lb = ");
     ListTraverse(Lb, PrintElem);
     

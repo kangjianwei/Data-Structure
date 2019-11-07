@@ -16,40 +16,66 @@
  *
  * 根据输入的系数和指数，创建项数为m的一元多项式
  *
+ *
  *【备注】
+ *
  * 教材中默认从控制台读取数据。
  * 这里为了方便测试，避免每次运行都手动输入数据，
- * 因而选择了从预设的文件path中读取测试数据
+ * 因而允许选择从预设的文件path中读取测试数据。
+ *
+ * 如果需要从控制台读取数据，则不需要填写可变参数，
+ * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
  */
-void CreatPolyn(char path[], Polynomial* P, int m) {
-    FILE* fp;
+void CreatPolyn(Polynomial* P, int m, ...) {
     int i;
     ElemType e;
     Position h, q;
     Link s;
-    
+    va_list ap;
+    FILE* fp;
+    char* path = NULL;
+    int readFromConsole;    // 是否从控制台读取数据
+
+    va_start(ap, m);
+    path = va_arg(ap, char*);
+    va_end(ap);
+
+    // 如果没有文件路径信息，则从控制台读取输入
+    readFromConsole = path == NULL || strstr(path, "TestData") == NULL;
+
     // 初始化一个线性链表存放一元多项式
     InitList(P);
-    
+
     // 获取多项式头指针
     h = GetHead(*P);
-    
+
     // 为头结点填充数据
     e.coef = 0.0f;
     e.expn = -1;
     SetCurElem(h, e);
-    
-    // 打开文件，准备读取测试数据
-    fp = fopen(path, "r");
-    if(fp == NULL) {
-        exit(ERROR);
+
+    if(!readFromConsole) {
+        // 打开文件，准备读取测试数据
+        fp = fopen(path, "r");
+        if(fp == NULL) {
+            exit(ERROR);
+        }
     }
-    
+
+    if(readFromConsole) {
+        printf("请输入 %d 个元素：\n", m);
+    }
+
     // 依次录入m个有效项
     for(i = 1; i <= m; i++) {
         // 读取系数和指数信息，临时存入e
-        ReadData(fp, "%f%d", &(e.coef), &(e.expn));
-        
+        if(readFromConsole) {
+            printf("请输入第 %d 组系数和指数：", i);
+            scanf("%f%d", &(e.coef), &(e.expn));
+        } else {
+            ReadData(fp, "%f%d", &(e.coef), &(e.expn));
+        }
+
         // 如果当前链表中不存在该指数项
         if(LocateElem(*P, e, &q, Cmp) == FALSE && q != NULL) {
             // 创建新结点
@@ -59,8 +85,10 @@ void CreatPolyn(char path[], Polynomial* P, int m) {
             }
         }
     }
-    
-    fclose(fp);
+
+    if(!readFromConsole) {
+        fclose(fp);
+    }
 }
 
 /*
@@ -94,21 +122,21 @@ void AddPolyn(Polynomial* Pa, Polynomial* Pb) {
     Position qa, qb;
     ElemType a, b;
     float sum;
-    
+
     // ha、hb分别指向Pa、Pb头结点
     ha = GetHead(*Pa);
     hb = GetHead(*Pb);
-    
+
     // qa、qb分别指向Pa、Pb的当前结点
     qa = NextPos(*Pa, ha);
     qb = NextPos(*Pb, hb);
-    
+
     // qa、qb均非空
     while(qa && qb) {
         // a和b为两表中当前比较元素
         a = GetCurElem(qa);
         b = GetCurElem(qb);
-        
+
         //比较当前元素的指数大小
         switch(Cmp(a, b)) {
             // 多项式Pa中当前结点的指数值较小
@@ -116,19 +144,19 @@ void AddPolyn(Polynomial* Pa, Polynomial* Pb) {
                 ha = qa;
                 qa = NextPos(*Pa, qa);
             }
-            break;
-                
-            // 两者数值相等
+                break;
+
+                // 两者数值相等
             case 0: {
                 sum = a.coef + b.coef;
-                
+
                 // 相加不能抵消时更新Pa结点的系数值
                 if(sum != 0.0) {
                     // 这里用SetCurElem()不合适，不如直接赋值
                     qa->data.coef = sum;
                     // ha后移
                     ha = qa;
-                    
+
                     //相加抵消时，删除Pa中当前结点
                 } else {
                     // 删除ha后面的结点（其实删的就是qa）
@@ -136,41 +164,41 @@ void AddPolyn(Polynomial* Pa, Polynomial* Pb) {
                     // 释放被删除结点所占空间
                     FreeNode(&qa);
                 }
-                
+
                 // 删除Pb中扫描过的结点
                 DelFirst(Pb, hb, &qb);
                 // 释放被删除结点所占空间
                 FreeNode(&qb);
-                
+
                 // qa、qb均后移
                 qa = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
-                
-            // 多项式Pb中当前结点的指数值较小
+                break;
+
+                // 多项式Pb中当前结点的指数值较小
             case 1: {
                 // 摘下Pb当前结点
                 DelFirst(Pb, hb, &qb);
-                
+
                 // 将摘下结点链入Pa中
                 InsFirst(Pa, ha, qb);
-                
+
                 ha = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
+                break;
         }//switch
     }//while
-    
+
     // 若Pb还未扫描完，将剩余项链接到Pa后
     if(qb != NULL) {
         Append(Pa, qb);
     }
-    
+
     // 释放Pb头结点
     FreeNode(&hb);
-    
+
     // 设置Pb为销毁状态
     (*Pb).head = (*Pb).tail = NULL;
     (*Pb).len = 0;
@@ -188,21 +216,21 @@ void SubtractPolyn(Polynomial* Pa, Polynomial* Pb) {
     Position r;
     ElemType a, b;
     float sum;
-    
+
     // ha、hb分别指向Pa、Pb头结点
     ha = GetHead(*Pa);
     hb = GetHead(*Pb);
-    
+
     // qa、qb分别指向Pa、Pb的当前结点
     qa = NextPos(*Pa, ha);
     qb = NextPos(*Pb, hb);
-    
+
     // qa、qb均非空
     while(qa && qb) {
         // a和b为两表中当前比较元素
         a = GetCurElem(qa);
         b = GetCurElem(qb);
-        
+
         // 比较当前元素的指数大小
         switch(Cmp(a, b)) {
             // 多项式Pa中当前结点的指数值较小
@@ -211,18 +239,18 @@ void SubtractPolyn(Polynomial* Pa, Polynomial* Pb) {
                 qa = NextPos(*Pa, ha);
             }
                 break;
-                
-            // 两者数值相等
+
+                // 两者数值相等
             case 0: {
                 sum = a.coef - b.coef;
-                
+
                 // 相减不能抵消时更新Pa结点的系数值
                 if(sum != 0.0) {
                     // 更新系数
                     qa->data.coef = sum;
                     // ha后移
                     ha = qa;
-                    
+
                     // 相减抵消时，删除Pa中当前结点
                 } else {
                     // 删除ha后面的结点（其实删的就是qa）
@@ -230,49 +258,49 @@ void SubtractPolyn(Polynomial* Pa, Polynomial* Pb) {
                     // 释放被删除结点所占空间
                     FreeNode(&qa);
                 }
-                
+
                 // 删除Pb中扫描过的结点
                 DelFirst(Pb, hb, &qb);
                 // 释放被删除结点所占空间
                 FreeNode(&qb);
-                
+
                 // qa、qb均后移
                 qa = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
-                
-            // 多项式Pb中当前结点的指数值较小
+                break;
+
+                // 多项式Pb中当前结点的指数值较小
             case 1: {
                 // 摘下Pb当前结点
                 DelFirst(Pb, hb, &qb);
-                
+
                 // 改变当前结点符号
                 qb->data.coef = -qb->data.coef;
-                
+
                 // 将摘下结点链入Pa中
                 InsFirst(Pa, ha, qb);
-                
+
                 ha = NextPos(*Pa, ha);
                 qb = NextPos(*Pb, hb);
             }
-            break;
+                break;
         }//switch
     }//while
-    
+
     // 若Pb还未扫描完，将剩余项的系数取反后链接到Pa后
     if(qb != NULL) {
         // 改变剩余项的符号
         for(r = qb = 0; r != NULL; r = r->next) {
             r->data.coef = -r->data.coef;
         }
-        
+
         Append(Pa, qb);
     }
-    
+
     // 释放Pb头结点
     FreeNode(&hb);
-    
+
     // 设置Pb为销毁状态
     (*Pb).head = (*Pb).tail = NULL;
     (*Pb).len = 0;
@@ -291,45 +319,45 @@ void MultiplyPolyn(Polynomial* Pa, Polynomial* Pb) {
     Position qa, qb;
     Link s;
     ElemType e;
-    
+
     // 获取两个多项式的长度
     la = PolynLength(*Pa);
     lb = PolynLength(*Pb);
-    
+
     // ha、hb分别指向Pa、Pb头结点
     ha = GetHead(*Pa);
     hb = GetHead(*Pb);
-    
+
     // 累加计算结果
     InitList(&Pc);
-    
+
     // 遍历Pa中的元素
     for(i = 1; i <= la; i++) {
         // 存储临时计算结果
         InitList(&Ptmp);
-        
+
         // 逐个摘下Pa中的结点
         DelFirst(Pa, ha, &qa);
-        
+
         // 遍历Pb中所有结点，与Pa中摘下的结点进行运算
         for(j = 1, qb = NextPos(*Pb, hb); j <= lb; j++, qb = NextPos(*Pb, qb)) {
             e.coef = qa->data.coef * qb->data.coef;    //系数相乘
             e.expn = qa->data.expn + qb->data.expn;    //指数相加
-            
+
             // 创建新结点存储结算结果
             MakeNode(&s, e);
-            
+
             // 添加到临时多项式
             Append(&Ptmp, s);
         }
-        
+
         // 将新的多项式累加到Pc上
         AddPolyn(&Pc, &Ptmp);
     }
-    
+
     // 将所有结果添加到Pa上
     AddPolyn(Pa, &Pc);
-    
+
     // 销毁多项式Pb
     DestroyPolyn(Pb);
 }
@@ -345,13 +373,13 @@ void MultiplyPolyn(Polynomial* Pa, Polynomial* Pb) {
 void PrintPolyn(Polynomial P) {
     int i;
     Link p;
-    
+
     p = P.head->next;
     for(i = 1; i <= P.len; i++) {
         if(p->data.coef == 0.0f) {
             continue;
         }
-        
+
         if(i == 1) {
             printf("%g", p->data.coef);
         } else {
@@ -363,18 +391,18 @@ void PrintPolyn(Polynomial P) {
                 printf("%g", -p->data.coef);
             }
         }
-        
+
         if(p->data.expn) {
             printf("x");
-            
+
             if(p->data.expn != 1) {
                 printf("^%d", p->data.expn);
             }
         }
-        
+
         p = p->next;
     }
-    
+
     printf("\n");
 }
 
@@ -386,7 +414,7 @@ void PrintPolyn(Polynomial P) {
 int Cmp(ElemType c1, ElemType c2) {
     // 计算指数差
     int i = c1.expn - c2.expn;
-    
+
     if(i < 0) {
         return -1;
     } else if(i == 0) {
@@ -395,3 +423,4 @@ int Cmp(ElemType c1, ElemType c2) {
         return 1;
     }
 }
+
