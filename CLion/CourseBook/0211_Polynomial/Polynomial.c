@@ -23,25 +23,19 @@
  * 这里为了方便测试，避免每次运行都手动输入数据，
  * 因而允许选择从预设的文件path中读取测试数据。
  *
- * 如果需要从控制台读取数据，则不需要填写可变参数，
- * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
+ * 如果需要从控制台读取数据，则path为NULL或者为空串，
+ * 如果需要从文件中读取数据，则需要在path中填写文件名信息。
  */
-void CreatPolyn(Polynomial* P, int m, ...) {
+void CreatPolyn(Polynomial* P, int m, char* path) {
     int i;
     ElemType e;
     Position h, q;
     Link s;
-    va_list ap;
     FILE* fp;
-    char* path = NULL;
     int readFromConsole;    // 是否从控制台读取数据
     
-    va_start(ap, m);
-    path = va_arg(ap, char*);
-    va_end(ap);
-    
     // 如果没有文件路径信息，则从控制台读取输入
-    readFromConsole = path == NULL || strstr(path, "TestData") == NULL;
+    readFromConsole = path == NULL || strcmp(path, "") == 0;
     
     // 初始化一个线性链表存放一元多项式
     InitList(P);

@@ -10,7 +10,6 @@
 #include <stdio.h>
 #include <stdlib.h>         // 提供malloc、realloc、free、exit原型
 #include <string.h>         // 提供 strstr 原型
-#include <stdarg.h>         // 提供宏va_list、va_start、va_arg、va_end
 #include "ELinkList.h"      //**▲02 线性表**//
 
 /* 一元多项式类型定义 */
@@ -33,10 +32,10 @@ typedef ELinkList Polynomial;
  * 这里为了方便测试，避免每次运行都手动输入数据，
  * 因而允许选择从预设的文件path中读取测试数据。
  *
- * 如果需要从控制台读取数据，则不需要填写可变参数，
- * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
+ * 如果需要从控制台读取数据，则path为NULL或者为空串，
+ * 如果需要从文件中读取数据，则需要在path中填写文件名信息。
  */
-void CreatPolyn(Polynomial* P, int m, ...);
+void CreatPolyn(Polynomial* P, int m, char* path);
 
 /*
  * 销毁

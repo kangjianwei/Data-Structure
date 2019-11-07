@@ -20,26 +20,20 @@
  * 这里为了方便测试，避免每次运行都手动输入数据，
  * 因而允许选择从预设的文件path中读取测试数据。
  *
- * 如果需要从控制台读取数据，则不需要填写可变参数，
- * 如果需要从文件中读取数据，则需要在可变参数中填写文件名信息(文件名中需要包含子串"TestData")。
+ * 如果需要从控制台读取数据，则path为NULL或者为空串，
+ * 如果需要从文件中读取数据，则需要在path中填写文件名信息。
  */
-void difference(SLinkList space, int* S, ...) {
+void difference(SLinkList space, int* S, char* path) {
     int m, n;       // 集合A和集合B中元素数量
     int j;          // 循环计数器
     int R;          // 指向静态链表最后一个结点
     int i, k, p;
     int b;          // 临时存储从集合B中读到的数据
-    va_list ap;
     FILE* fp;
-    char* path = NULL;
     int readFromConsole;    // 是否从控制台读取数据
     
-    va_start(ap, S);
-    path = va_arg(ap, char*);
-    va_end(ap);
-    
     // 如果没有文件路径信息，则从控制台读取输入
-    readFromConsole = path == NULL || strstr(path, "TestData") == NULL;
+    readFromConsole = path == NULL || strcmp(path, "") == 0;
     
     // 初始化备用空间
     InitSpace(space);
