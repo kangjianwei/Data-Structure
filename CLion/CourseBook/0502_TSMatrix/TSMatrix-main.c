@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
     {
         TSMatrix Q1;
         
-        AddSMatri(M, N, &Q1);
+        AddSMatrix(M, N, &Q1);
         
         printf("█ Q1 = M + N = \n");
         PrintSMatrix(Q1);

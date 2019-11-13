@@ -269,7 +269,7 @@ Status CopySMatrix(CrossList M, CrossList* T) {
  *
  * Q = M + N¡£
  */
-Status AddSMatri(CrossList M, CrossList N, CrossList* Q) {
+Status AddSMatrix(CrossList M, CrossList N, CrossList* Q) {
     int i;
     OLNode* pm, * pn, * p, * r, * l;
     

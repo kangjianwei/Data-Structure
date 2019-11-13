@@ -89,7 +89,7 @@ Status CopySMatrix(TSMatrix M, TSMatrix* T) {
  *
  * Q = M + N¡£
  */
-Status AddSMatri(TSMatrix M, TSMatrix N, TSMatrix* Q) {
+Status AddSMatrix(TSMatrix M, TSMatrix N, TSMatrix* Q) {
     int m, n, k;
     
     if(M.mu != N.mu || M.nu != N.nu) {

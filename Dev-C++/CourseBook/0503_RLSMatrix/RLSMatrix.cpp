@@ -98,7 +98,7 @@ Status CopySMatrix(RLSMatrix M, RLSMatrix* T) {
  *
  * Q = M + N¡£
  */
-Status AddSMatri(RLSMatrix M, RLSMatrix N, RLSMatrix* Q) {
+Status AddSMatrix(RLSMatrix M, RLSMatrix N, RLSMatrix* Q) {
     int m, n, k;
     
     if(M.mu != N.mu || M.nu != N.nu) {
