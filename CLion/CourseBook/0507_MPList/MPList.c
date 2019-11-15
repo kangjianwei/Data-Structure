@@ -4,6 +4,9 @@
 
 #include "MPList.h"
 
+// 参见头文件中的声明
+char Var[27];
+
 /*
  * 创建
  *
@@ -26,6 +29,9 @@ Status CreateMPList(MPList* P, char* S, char* vars) {
         *P = NULL;
         return ERROR;
     }
+    
+    // 初始化元信息
+    strcpy(Var, vars);
     
     *P = (MPList) malloc(sizeof(MPNode));
     if(*P == NULL) {
@@ -107,6 +113,7 @@ static Status Create(MPList* P, char* S) {
  */
 void PrintGraph(MPList P) {
     if(P == NULL) {
+        printf("\n");
         return;
     }
     Print(P->Node.hp);

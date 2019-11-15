@@ -6,6 +6,6 @@ int main(int argc, char** argv) {
     char *s = "z((2,y((3,x((10,1),(6,2))),(2,x((5,3))))),(1,y((4,x((4,1),(3,6))),(1,x((0,2))))),(0,5))";
     
     printf("创建三元多项式...\n");
-    CreateMPList(&P, s, "xyz");
+    CreateMPList(&P, s, "zxy");
     PrintGraph(P);
 }
