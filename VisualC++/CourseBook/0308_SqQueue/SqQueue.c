@@ -51,7 +51,7 @@ Status DestroyQueue(SqQueue* Q) {
 /*
  * 置空(内容)
  *
- * 只是清理循环顺序队列中存储的数据，不释放顺序栈所占内存。
+ * 只是清理循环顺序队列中存储的数据，不释放顺序队列所占内存。
  */
 Status ClearQueue(SqQueue* Q) {
     if(Q == NULL || (*Q).base == NULL) {
