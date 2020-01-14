@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     fp = fopen("TestData.txt", "r");
     Algo_6_73(&T, fp);
     fclose(fp);
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("®Ä®Ä®Ä Ã‚ 6.74 —È÷§... ®Ä®Ä®Ä\n");

@@ -73,3 +73,4 @@ Status MergeEList(ELinkList* La, ELinkList* Lb, ELinkList* Lc, int(Compare)(Elem
     
     return OK;
 }
+

@@ -72,7 +72,7 @@ static Status Create(MPList* P, char* S);
  *
  * 带括号输出m元多项P。
  */
-void PrintGraph(MPList P);
+void PrintMPList(MPList P);
 
 /*
  * 图形化输出的内部实现

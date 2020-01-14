@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "Status.h"     //**▲01 绪论**//
 #include "CSTree.h"     //**▲06 树和二叉树**//
 
 #define MAX_TREE_SIZE  1024  // 树中元素数量最大值
@@ -31,7 +30,7 @@ int main(int argc, char* argv[]) {
     printf("创建树（先序序列）T...\n");
     InitTree(&T);
     CreateTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("███题 6.59 验证...███\n");

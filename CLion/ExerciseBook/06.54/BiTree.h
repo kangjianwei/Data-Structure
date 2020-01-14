@@ -49,6 +49,6 @@ Status BiTreeEmpty(BiTree T);
 int BiTreeDepth(BiTree T);
 
 // 以图形化形式输出当前结构，仅限内部测试使用
-void PrintGraph(BiTree T);
+void PrintTree(BiTree T);
 
 #endif

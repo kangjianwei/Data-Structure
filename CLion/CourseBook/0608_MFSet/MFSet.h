@@ -155,7 +155,7 @@ static void relation(Relation* R, FILE* fp);
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前集合
-void PrintGraph(MFSet S);
+void PrintSet(MFSet S);
 
 // 图形化输出树的排列结构，仅限内部测试使用
 static void PrintFramework(MFSet S);

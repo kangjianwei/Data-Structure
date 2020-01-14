@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     fp = fopen("TestData.txt", "r");
     Algo_6_70(&T, fp);
     fclose(fp);
-    PrintGraph(T);
+    PrintTree(T);
     
     return 0;
 }

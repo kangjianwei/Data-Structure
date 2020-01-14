@@ -21,12 +21,12 @@ int main(int argc, char* argv[]) {
     StrAssign(S, s);
     CreateGList(&L, S);
     printf("L = ");
-    PrintGraph(L);
+    PrintGList(L);
     
     printf("复制广义表到 L 到 T...\n");
     Algo_5_31(&T, L);
     printf("T = ");
-    PrintGraph(T);
+    PrintGList(T);
     
     return 0;
 }

@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
     StrAssign(S, s);
     CreateGList(&L, S);
     printf("L = ");
-    PrintGraph(L);
+    PrintGList(L);
     
     printf("广义表深度为： %d\n", Algo_5_30_1(L));
     

@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     printf("创建树（先序序列）T...\n");
     InitTree(&T);
     CreateTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("方法 1：先序遍历按凹入表打印树：\n");

@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
     printf("创建二叉树（先序序列）T...\n");
     InitBiTree(&T);
     CreateBiTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("先序输出二叉树结点值及其相应的子孙数目：\n");

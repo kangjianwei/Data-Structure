@@ -143,7 +143,7 @@ void Traverse(GList L, void (Visit)(AtomType));
  *
  * 带括号输出广义表L。
  */
-void PrintGraph(GList L);
+void PrintGList(GList L);
 
 /*
  * 图形化输出的内部实现，mark是图形化输出标记。

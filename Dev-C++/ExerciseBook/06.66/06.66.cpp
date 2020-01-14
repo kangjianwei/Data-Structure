@@ -17,12 +17,12 @@ int main(int argc, char* argv[]) {
     printf("创建树T...\n");
     InitTree_P(&PT);
     CreateTree_P(&PT, "TestData.txt");
-    PrintGraph_P(PT);
+    PrintTree_P(PT);
     printf("\n");
     
     printf("树的双亲表示法转为树的孩子-兄弟表示法：\n");
     CST = Algo_6_66(PT);
-    PrintGraph_CS(CST);
+    PrintTree_CS(CST);
     printf("\n");
     
     return 0;

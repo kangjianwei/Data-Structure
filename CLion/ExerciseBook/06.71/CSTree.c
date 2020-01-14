@@ -128,7 +128,7 @@ static void Depth(CSTree T, int d, int* max) {
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构
-void PrintGraph(CSTree T) {
+void PrintTree(CSTree T) {
     
     // 遇到空树则无需继续计算
     if(TreeEmpty(T)) {

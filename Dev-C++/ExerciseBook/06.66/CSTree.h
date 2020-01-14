@@ -42,7 +42,7 @@ Status InitTree_CS(CSTree* T);
 Status TreeEmpty_CS(CSTree T);
 
 // 以图形化形式输出当前结构
-void PrintGraph_CS(CSTree T);
+void PrintTree_CS(CSTree T);
 
 // 图形化输出当前结构内部实现
 static void Print_CS(CSTree T, int row);

@@ -41,23 +41,23 @@ int main(int argc, char* argv[]) {
     printf("创建三元多项式...\n");
     CreateMPList(&P, p, "zyx");
     printf("P = ");
-    PrintGraph(P);
+    PrintMPList(P);
     CreateMPList(&Q, q, "zyx");
     printf("Q = ");
-    PrintGraph(Q);
+    PrintMPList(Q);
     
     // 求第一元的偏导数
     printf("P' = ");
     Algo_5_28(P, &PD);
-    PrintGraph(PD);
+    PrintMPList(PD);
     printf("Q' = ");
     Algo_5_28(Q, &QD);
-    PrintGraph(QD);
+    PrintMPList(QD);
 
     // 多项式加法
     printf("R = ");
     Algo_5_29(P, Q, &R);
-    PrintGraph(R);
+    PrintMPList(R);
 }
 
 

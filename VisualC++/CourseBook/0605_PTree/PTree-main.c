@@ -35,11 +35,11 @@ int main(int argc, char* argv[]) {
     PressEnterToContinue();
     
     
-    printf("████████ PrintGraph \n");
+    printf("████████ PrintTree \n");
     {
         printf("█ 按树的结构打印树 T ...\n");
         printf("█ T = \n");
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
         printf("█ 将结点 %c 赋值为 %c ...\n", e, value);
         Assign(&T, e, value);
         printf("█ T = \n");
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     
@@ -146,12 +146,12 @@ int main(int argc, char* argv[]) {
         InitTree(&c);
         CreateTree(&c, "TestData_c.txt");
         printf("█ c = \n");
-        PrintGraph(c);
+        PrintTree(c);
         
         printf("█ 将子树 c 插入为树 T 中 %c 结点的第 %d 棵子树 ...\n", p, i);
         InsertChild(&T, p, i, c);
         printf("█ T = \n");
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     
@@ -164,7 +164,7 @@ int main(int argc, char* argv[]) {
         printf("█ 删除树 T 中 %c 结点的第 %d 棵子树 ...\n", p, i);
         DeleteChild(&T, p, i);
         printf("█ T = \n");
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     

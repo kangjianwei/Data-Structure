@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     StrAssign(S, s);
     CreateGList(&L, S);
     printf("L = ");
-    PrintGraph(L);
+    PrintGList(L);
     
     Algo_5_33_1(L, 0);
     

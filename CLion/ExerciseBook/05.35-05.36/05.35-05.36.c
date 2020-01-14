@@ -41,5 +41,5 @@ Status Algo_5_35(GList* L, SString S) {
  * 带括号输出广义表L，这里将"( )"定义为广义表为空的状态。
  */
 void Algo_5_36(GList L) {
-    PrintGraph(L);
+    PrintGList(L);
 }

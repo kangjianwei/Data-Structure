@@ -111,7 +111,7 @@ static Status Create(MPList* P, char* S) {
  *
  * 带括号输出m元多项P。
  */
-void PrintGraph(MPList P) {
+void PrintMPList(MPList P) {
     if(P == NULL) {
         printf("\n");
         return;

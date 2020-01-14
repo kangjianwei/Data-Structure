@@ -106,7 +106,7 @@ static void getPos(PTree T, Pos pt[]);
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构
-void PrintGraph(PTree T);
+void PrintTree(PTree T);
 
 // 图形化输出当前结构内部实现
 static void Print(PTree T, Pos pt[], int i);

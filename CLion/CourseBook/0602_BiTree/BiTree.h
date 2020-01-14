@@ -225,6 +225,6 @@ static Status PostTraverse(BiTree T, Status(Visit)(TElemType));
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构，仅限内部测试使用
-void PrintGraph(BiTree T);
+void PrintTree(BiTree T);
 
 #endif

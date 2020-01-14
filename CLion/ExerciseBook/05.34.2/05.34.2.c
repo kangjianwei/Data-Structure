@@ -18,12 +18,12 @@ int main(int argc, char* argv[]) {
     StrAssign(S, s);
     CreateGList(&L, S);
     printf("L = ");
-    PrintGraph(L);
+    PrintGList(L);
     
     printf("逆置广义表...\n");
     Algo_5_34_2(&L);
     printf("L = ");
-    PrintGraph(L);
+    PrintGList(L);
     
     return 0;
 }

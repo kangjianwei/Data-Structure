@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     printf("创建树T...\n");
     InitTree(&T);
     CreateTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("此树的深度为： %d\n", Algo_6_63(T));

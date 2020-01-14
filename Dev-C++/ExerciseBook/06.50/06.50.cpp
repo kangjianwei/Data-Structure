@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     printf("\n");
     
     printf("¶þ²æÊ÷TÎª£º\n");
-    PrintGraph(T);
+    PrintTree(T);
     
     return 0;
 }

@@ -34,10 +34,10 @@ int main(int argc, char* argv[]) {
     PressEnterToContinue();
     
     
-    printf("████████ PrintGraph \n");
+    printf("████████ PrintTree \n");
     {
         printf("█ 按二叉树的结构打印树 T ...\n");
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     
@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
         TElemType value = 'X';
         printf("█ 将结点 %c 赋值为 %c 后，T = \n", e, value);
         Assign(T, e, value);
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     
@@ -141,20 +141,20 @@ int main(int argc, char* argv[]) {
         printf("█ 创建子树 c1 ...\n");
         InitBiTree(&c1);
         CreateBiTree(&c1, "TestData_c1.txt");
-        PrintGraph(c1);
+        PrintTree(c1);
         
         printf("█ 创建子树 c2 ...\n");
         InitBiTree(&c2);
         CreateBiTree(&c2, "TestData_c2.txt");
-        PrintGraph(c2);
+        PrintTree(c2);
         
         printf("█ 将子树 c1 插入为二叉树 T 中 %c 结点的右子树 ...\n", p1);
         InsertChild(T, p1, 1, c1);
-        PrintGraph(T);
+        PrintTree(T);
         
         printf("█ 将子树 c2 插入为二叉树 T 中 %c 结点的左子树 ...\n", p2);
         InsertChild(T, p2, 0, c2);
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     
@@ -166,11 +166,11 @@ int main(int argc, char* argv[]) {
         
         printf("█ 删除二叉树 T 中 %c 结点的右子树 ...\n", p1);
         DeleteChild(T, p1, 1);
-        PrintGraph(T);
+        PrintTree(T);
         
         printf("█ 删除二叉树 T 中 %c 结点的左子树 ...\n", p2);
         DeleteChild(T, p2, 0);
-        PrintGraph(T);
+        PrintTree(T);
     }
     PressEnterToContinue();
     

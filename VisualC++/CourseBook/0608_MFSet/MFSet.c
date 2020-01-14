@@ -289,7 +289,7 @@ static void relation(Relation* R, FILE* fp) {
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构
-void PrintGraph(MFSet S) {
+void PrintSet(MFSet S) {
     typedef struct Elem {
         int x;
         struct Elem* next;

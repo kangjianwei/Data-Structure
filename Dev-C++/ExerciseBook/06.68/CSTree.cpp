@@ -29,7 +29,7 @@ Status TreeEmpty(CSTree T) {
 }
 
 // 以图形化形式输出当前结构
-void PrintGraph(CSTree T) {
+void PrintTree(CSTree T) {
     
     // 遇到空树则无需继续计算
     if(TreeEmpty(T)) {

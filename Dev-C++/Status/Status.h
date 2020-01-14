@@ -30,6 +30,9 @@
 /* 状态码类型 */
 typedef int Status;
 
+/* 布尔类型 */
+typedef int Boolean;
+
 
 // 读取数据
 int ReadData(FILE* fp, char* format, ...);
@@ -39,6 +42,9 @@ void PressEnterToContinue();
 
 // 函数暂停一段时间，time不代表具体的时间
 void Wait(long time);
+
+// 跳过输入端的行分割符，如'\r'、'\n'、'\r\n'
+void skipLineSeparator(FILE* fp);
 
 #endif
 

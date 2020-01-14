@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
     printf("创建二叉树（先序序列）T...\n");
     InitBiTree(&T);
     CreateBiTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("输出根结点到叶子结点最长路径中最靠左的一条：");

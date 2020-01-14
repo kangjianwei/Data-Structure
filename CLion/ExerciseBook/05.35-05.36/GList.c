@@ -96,7 +96,7 @@ Status CreateGList(GList* L, SString S) {
  *【注】
  * 这里将"( )"定义为广义表为空的状态。
  */
-void PrintGraph(GList L) {
+void PrintGList(GList L) {
     Print(L, Head);
     printf("\n");
 }

@@ -61,10 +61,10 @@ int main(int argc, char** argv) {
     }
     PressEnterToContinue();
     
-    printf("████████ 函数 PrintGraph \n");
+    printf("████████ 函数 PrintGList \n");
     {
         printf("█ 带括号输出广义表 Tmp = ");
-        PrintGraph(Tmp);
+        PrintGList(Tmp);
     }
     PressEnterToContinue();
     
@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
     {
         printf("█ 复制 Tmp 到 G = ");
         CopyGList(&G, Tmp);
-        PrintGraph(G);
+        PrintGList(G);
     }
     PressEnterToContinue();
     
@@ -83,10 +83,10 @@ int main(int argc, char** argv) {
         printf("█ 删除广义表 Tmp 的表头：");
         
         DeleteFirst(&Tmp, &h);
-        PrintGraph(h);
+        PrintGList(h);
         
         printf("█ Tmp = ");
-        PrintGraph(Tmp);
+        PrintGList(Tmp);
     }
     PressEnterToContinue();
     
@@ -108,7 +108,7 @@ int main(int argc, char** argv) {
         
         printf("█ 广义表 G 的表头 H = ");
         H = GetHead(G);
-        PrintGraph(H);
+        PrintGList(H);
     }
     PressEnterToContinue();
     
@@ -118,7 +118,7 @@ int main(int argc, char** argv) {
         
         printf("█ 广义表 G 的表尾 T = ");
         T = GetTail(G);
-        PrintGraph(T);
+        PrintGList(T);
     }
     PressEnterToContinue();
     

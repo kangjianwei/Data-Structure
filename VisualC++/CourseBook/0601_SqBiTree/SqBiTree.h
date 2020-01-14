@@ -205,6 +205,6 @@ static Status PostTraverse(SqBiTree T, Status(Visit)(TElemType), int i);
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构，仅限内部测试使用
-void PrintGraph(SqBiTree T);
+void PrintTree(SqBiTree T);
 
 #endif

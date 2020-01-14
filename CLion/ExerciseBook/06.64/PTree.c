@@ -274,7 +274,7 @@ static void getPos(PTree T, Pos pt[]) {
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构
-void PrintGraph(PTree T) {
+void PrintTree(PTree T) {
     Pos pt[MAX_TREE_SIZE];
     
     // 遇到空树则无需继续计算

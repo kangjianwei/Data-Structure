@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     
     printf("创建二叉树 T ：...\n");
     CreateBiTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("███题 6.37 验证...███\n");

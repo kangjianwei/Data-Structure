@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     StrAssign(S, s);
     CreateGList(&L, S);
     printf("L = ");
-    PrintGraph(L);
+    PrintGList(L);
     
     printf("广义表第 2 层的原子项为：");
     Algo_5_38_1(L, 0, 2);

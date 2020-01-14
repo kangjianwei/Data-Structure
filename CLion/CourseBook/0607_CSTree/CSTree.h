@@ -196,7 +196,7 @@ static Status PostTraverse(CSTree T, Status(Visit)(TElemType));
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构
-void PrintGraph(CSTree T);
+void PrintTree(CSTree T);
 
 // 图形化输出当前结构内部实现
 static void Print(CSTree T, int row);

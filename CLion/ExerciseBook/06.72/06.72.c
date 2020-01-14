@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "Status.h"     //**▲01 绪论**//
 #include "CTree.h"      //**▲06 树和二叉树**//
 
 /*
@@ -21,7 +20,7 @@ int main(int argc, char* argv[]) {
     printf("创建树T...\n");
     InitTree(&T);
     CreateTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("先序遍历按凹入表打印树：\n");

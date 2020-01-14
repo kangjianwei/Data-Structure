@@ -602,7 +602,7 @@ static Status PostTraverse(BiTriTree T, Status(Visit)(TElemType)) {
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构，仅限内部测试使用
-void PrintGraph(BiTriTree T) {
+void PrintTree(BiTriTree T) {
     int level, width;
     int i, j, k, w;
     int begin;

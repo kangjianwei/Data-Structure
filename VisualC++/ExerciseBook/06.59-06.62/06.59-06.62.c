@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     printf("创建树（先序序列）T...\n");
     InitTree(&T);
     CreateTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("███题 6.59 验证...███\n");

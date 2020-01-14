@@ -628,7 +628,7 @@ static Status PostTraverse(SqBiTree T, Status(Visit)(TElemType), int i) {
 
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
-void PrintGraph(SqBiTree T) {
+void PrintTree(SqBiTree T) {
     int level, width;
     int i, j, k, w;
     int begin;

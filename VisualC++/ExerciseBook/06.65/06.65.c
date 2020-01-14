@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     
     printf("由此构造的二叉树为 T = \n");
     Algo_6_65(&T);
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     return 0;

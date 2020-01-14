@@ -370,7 +370,7 @@ void Traverse(GList L, void(Visit)(AtomType)) {
  *
  * 带括号输出广义表L。
  */
-void PrintGraph(GList L) {
+void PrintGList(GList L) {
     Print(L);
     printf("\n");
 }

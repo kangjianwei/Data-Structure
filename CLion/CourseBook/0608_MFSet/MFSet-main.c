@@ -31,10 +31,10 @@ int main(int argc, char* argv[]) {
     PressEnterToContinue();
     
     
-    printf("████████ PrintGraph \n");
+    printf("████████ PrintSet \n");
     {
         printf("█ 输出集合 S ...\n");
-        PrintGraph(S);
+        PrintSet(S);
     }
     PressEnterToContinue();
     
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
         PrintRelation(R1);
 
         printf("█ 输出集合 S ...\n");
-        PrintGraph(S);
+        PrintSet(S);
 
 
         printf("█ 对集合应用二元关系 R2： ");
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
         PrintRelation(R2);
 
         printf("█ 输出集合 S ...\n");
-        PrintGraph(S);
+        PrintSet(S);
     }
     PressEnterToContinue();
     
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
 //        PrintRelation(R1);
 //
 //        printf("█ 输出集合 S ...\n");
-//        PrintGraph(S);
+//        PrintSet(S);
 //
 //
 //        printf("█ 对集合应用二元关系 R2： ");
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
 //        PrintRelation(R2);
 //
 //        printf("█ 输出集合 S ...\n");
-//        PrintGraph(S);
+//        PrintSet(S);
 //    }
 //    PressEnterToContinue();
     

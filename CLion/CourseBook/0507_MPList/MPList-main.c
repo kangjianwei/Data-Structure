@@ -7,5 +7,5 @@ int main(int argc, char** argv) {
     
     printf("创建三元多项式...\n");
     CreateMPList(&P, s, "zxy");
-    PrintGraph(P);
+    PrintMPList(P);
 }

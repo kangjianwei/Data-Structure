@@ -162,3 +162,19 @@ void Wait(long time) {
         // 空循环
     }
 }
+
+// 跳过输入端的行分割符，如'\r'、'\n'、'\r\n'
+void skipLineSeparator(FILE* fp) {
+    int ch;
+    
+    if(fp == NULL) {
+        return;
+    }
+    
+    while((ch = getc(fp)) != EOF) {
+        if(ch >= 0 && ch <= 127 && ch != '\r' && ch != '\n') {
+            ungetc(ch, fp);
+            break;
+        }
+    }
+}

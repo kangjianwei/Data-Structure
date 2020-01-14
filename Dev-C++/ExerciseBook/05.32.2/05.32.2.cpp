@@ -21,9 +21,9 @@ int main(int argc, char* argv[]) {
     StrAssign(Sb, b);
     CreateGList(&B, Sb);
     printf("A = ");
-    PrintGraph(A);
+    PrintGList(A);
     printf("B = ");
-    PrintGraph(B);
+    PrintGList(B);
     
     Algo_5_32_2(A, B) ? printf("两广义表相等！\n") : printf("两广义表不相等！！\n");
     

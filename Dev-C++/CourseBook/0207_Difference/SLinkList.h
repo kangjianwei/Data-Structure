@@ -84,6 +84,6 @@ void ListTraverse(SLinkList space, int S, void(Visit)(ElemType));
 /*━━━━━━━━━━━━━━━━━━━━━━ 图形化输出 ━━━━━━━━━━━━━━━━━━━━━━*/
 
 // 以图形化形式输出当前结构，仅限内部测试使用
-void PrintGraph(SLinkList space, int S);
+void PrintList(SLinkList space, int S);
 
 #endif

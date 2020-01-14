@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
     printf("创建二叉树 T ...\n");
     InitBiTree(&T);
     CreateBiTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("███题 6.41 验证...███\n");
@@ -94,7 +94,7 @@ int main(int argc, char* argv[]) {
     {
         printf("交换二叉树左右子树后二叉树变为：\n");
         Algo_6_43(T);
-        PrintGraph(T);
+        PrintTree(T);
         printf("\n");
     }
     
@@ -112,7 +112,7 @@ int main(int argc, char* argv[]) {
         
         printf("删除子树 %c 后，二叉树为：\n", x);
         if(Algo_6_45(&T, x)) {
-            PrintGraph(T);
+            PrintTree(T);
         }
         printf("\n");
     }
@@ -123,7 +123,7 @@ int main(int argc, char* argv[]) {
         
         printf("复制 T 到 Tx 后，二叉树Tx为：\n");
         Algo_6_46(T, &Tx);
-        PrintGraph(Tx);
+        PrintTree(Tx);
         printf("\n");
     }
     

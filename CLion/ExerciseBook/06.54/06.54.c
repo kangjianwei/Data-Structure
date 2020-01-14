@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
    
     printf("创建二叉树（层序序列）...\n");
     Algo_6_54(&T, sa);
-    PrintGraph(T);
+    PrintTree(T);
     
     return 0;
 }

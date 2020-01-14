@@ -13,17 +13,17 @@ int main(int argc, char* argv[]) {
     
     printf("创建二叉树 B1 ：...\n");
     CreateBiTree(&B1, "TestData_B1.txt");
-    PrintGraph(B1);
+    PrintTree(B1);
     printf("\n");
     
     printf("创建二叉树 B2 ：...\n");
     CreateBiTree(&B2, "TestData_B2.txt");
-    PrintGraph(B2);
+    PrintTree(B2);
     printf("\n");
     
     printf("创建二叉树 B3 ：...\n");
     CreateBiTree(&B3, "TestData_B3.txt");
-    PrintGraph(B3);
+    PrintTree(B3);
     printf("\n");
     
     if(Algo_6_36(B1, B2) == TRUE) {

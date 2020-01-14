@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     printf("\n");
     
     printf("二叉树T为：\n");
-    PrintGraph(T);
+    PrintTree(T);
     
     return 0;
 }

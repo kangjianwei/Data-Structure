@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     printf("创建二叉树（先序序列）T...\n");
     InitBiTree(&T);
     CreateBiTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("逆中序序列且按层序打印树：\n");

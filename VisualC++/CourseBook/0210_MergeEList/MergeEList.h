@@ -27,10 +27,4 @@
  */
 Status MergeEList(ELinkList* La, ELinkList* Lb, ELinkList* Lc, int(Compare)(ElemType, ElemType));
 
-/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃(01)算法2.21：La与Lb均非递减排列，将其归并为一个非递减排列的单链表Lc。┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
-
-
-
 #endif

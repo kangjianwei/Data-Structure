@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     printf("创建二叉树（先序序列）T...\n");
     InitBiTree(&T);
     CreateBiTree(&T, "TestData.txt");
-    PrintGraph(T);
+    PrintTree(T);
     printf("\n");
     
     printf("树的繁茂度为： %d", Algo_6_52(T));
