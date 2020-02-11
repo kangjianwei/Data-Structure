@@ -79,7 +79,15 @@ Status merge_mfset(MFSet* S, int i, int j) {
     if(i < 1 || i > S->n || j < 1 || j > S->n) {
         return ERROR;
     }
-    
+
+    /*
+     * 相同的子集无需合并，直接返回
+     * 注：教材中没有此步，需要修正
+     */
+    if(i == j) {
+        return OK;
+    }
+
     S->nodes[i].parent = j;
     
     return OK;
@@ -121,7 +129,15 @@ Status mix_mfset(MFSet* S, int i, int j) {
     if(i < 1 || i > S->n || j < 1 || j > S->n) {
         return ERROR;
     }
-    
+
+    /*
+     * 相同的子集无需合并，直接返回
+     * 注：教材中没有此步，需要修正
+     */
+    if(i == j) {
+        return OK;
+    }
+
     // Si所含成员数比sj少（根结点的parent域是负数，所以元素少的其值反而大）
     if(S->nodes[i].parent > S->nodes[j].parent) {
         S->nodes[j].parent += S->nodes[i].parent;
