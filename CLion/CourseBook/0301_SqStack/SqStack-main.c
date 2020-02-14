@@ -2,7 +2,10 @@
 #include "SqStack.h"    //**▲03 栈和队列**//
 
 // 测试函数，打印元素
-void PrintElem(SElemType e);
+void PrintElem(SElemType e) {
+    printf("%d ", e);
+}
+
 
 int main(int argc, char** argv) {
     SqStack S;
@@ -14,13 +17,13 @@ int main(int argc, char** argv) {
         printf("█ 初始化顺序栈 S ...\n");
         InitStack(&S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 StackEmpty \n");
     {
         StackEmpty(S) ? printf("█ S 为空！！\n") : printf("█ S 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 Push \n");
     {
@@ -29,21 +32,21 @@ int main(int argc, char** argv) {
             printf("█ 将 \"%2d\" 压入栈 S ...\n", 2 * i);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 StackTraverse \n");
     {
         printf("█ S 中的元素为：S = ");
         StackTraverse(S, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 StackLength \n");
     {
         i = StackLength(S);
         printf("█ S 的长度为 %d \n", i);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 Pop \n");
     {
@@ -52,14 +55,14 @@ int main(int argc, char** argv) {
         printf("█ S 中的元素为：S = ");
         StackTraverse(S, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GetTop \n");
     {
         GetTop(S, &e);
         printf("█ 栈顶元素的值为 \"%d\" \n", e);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 ClearStack \n");
     {
@@ -71,7 +74,7 @@ int main(int argc, char** argv) {
         printf("█ 清空 S 后：");
         StackEmpty(S) ? printf(" S 为空！！\n") : printf(" S 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 DestroyStack \n");
     {
@@ -83,12 +86,7 @@ int main(int argc, char** argv) {
         printf("█ 销毁 S 后：");
         S.base != NULL && S.top != NULL ? printf(" S 存在！\n") : printf(" S 不存在！！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
-}
-
-// 测试函数，打印元素
-void PrintElem(SElemType e) {
-    printf("%d ", e);
 }

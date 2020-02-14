@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
     Output(la);
     printf("█ lb = ");
     Output(lb);
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 题 2.16 验证...\n");
     printf("█ 将la中从第2个结点起的5个结点插入到lb的第6个结点之前...\n");
@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
     Output(la);
     printf("█ lb = ");
     Output(lb);
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 题 2.18 验证...\n");
     printf("█ 删除lb第6个结点起的5个结点...\n");

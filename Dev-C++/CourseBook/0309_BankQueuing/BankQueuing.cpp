@@ -9,6 +9,17 @@
 
 #include "BankQueuing.h"                //**▲03 栈和队列**//
 
+/* 全局变量（变量名称前面都加了g标记） */
+int gTotalTime;     // 累计客户数
+int gCustomerNum;   // 累计客户逗留时间
+
+int gCloseTime;     // 关门时间,假设银行每天营业8小时，480分
+
+EventList gEv;      // 事件表，存储所有待处理事件
+Event     gEn;      // 当前正在处理的事件
+
+LinkQueue gQ[N+1];  // 4个客户队列,0号单元弃用
+
 /*
  * ████████ 算法3.6 ████████
  *
@@ -165,7 +176,7 @@ void CustomerArrived() {
     
     // 当前客户进入最短队列排队
     EnQueue(&gQ[i], customer);
-    printf("第%3d个客户到队列 %d 中排队...\n", customer.Count, i);
+    printf("第%3d个客户到柜台 %d 中排队...\n", customer.Count, i);
     Show();
     
     /*
@@ -189,7 +200,7 @@ void CustomerDeparture() {
     
     // 第i个队列的队头客户完成业务并出队
     DeQueue(&gQ[i], &customer);
-    printf("第%3d个客户从队列 %d 中离开...\n", customer.Count, i);
+    printf("第%3d个客户从柜台 %d 中离开...\n", customer.Count, i);
     Show();
     
     // 累计客户逗留时间
@@ -308,16 +319,16 @@ void Show() {
         for(p = gQ[i].front; p; p = p->next) {
             if(p == gQ[i].front) {
                 if(i == 1) {
-                    printf("柜台①●");
+                    printf("柜台⑴●");
                 }
                 if(i == 2) {
-                    printf("柜台②●");
+                    printf("柜台⑵●");
                 }
                 if(i == 3) {
-                    printf("柜台③●");
+                    printf("柜台⑶●");
                 }
                 if(i == 4) {
-                    printf("柜台④●");
+                    printf("柜台⑷●");
                 }
             } else {
                 printf("（%03d）", p->data.Count);

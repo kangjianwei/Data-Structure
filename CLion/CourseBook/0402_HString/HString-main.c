@@ -2,7 +2,16 @@
 #include "HString.h"                                //**▲04 串**//
 
 // 测试函数，打印字符串
-void PrintElem(HString S);
+void PrintElem(HString S) {
+    int i;
+    
+    for(i = 0; i <= S.length-1; i++) {
+        printf("%c", S.ch[i]);
+    }
+    
+    printf("\n");
+}
+
 
 int main(int argc, char** argv) {
     char* chars = "01234567899876543210";
@@ -16,20 +25,20 @@ int main(int argc, char** argv) {
         printf("█ S = ");
         PrintElem(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrEmpty \n");
     {
         StrEmpty(S) ? printf("█ S 为空！！\n") : printf("█ S 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrLength \n");
     {
         i = StrLength(S);
         printf("█ S 的长度为 %d \n", i);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrCopy \n");
     {
@@ -38,7 +47,7 @@ int main(int argc, char** argv) {
         printf("█ T = ");
         PrintElem(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrCompare \n");
     {
@@ -46,7 +55,7 @@ int main(int argc, char** argv) {
         i = StrCompare(S, T);
         i == 0 ? printf("█ S==T\n") : (i < 0 ? printf("█ S<T\n") : printf("█ S>T\n"));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrInsert \n");
     {
@@ -56,7 +65,7 @@ int main(int argc, char** argv) {
         printf("█ S = ");
         PrintElem(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ Index \n");
     {
@@ -65,7 +74,7 @@ int main(int argc, char** argv) {
         i = Index(S, T, 1);
         printf("█ 串 \"*****\" 在 S 中第一次出现的位置为 %d \n", i);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ SubString \n");
     {
@@ -74,7 +83,7 @@ int main(int argc, char** argv) {
         printf("█ Sub = ");
         PrintElem(sub);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ Replace \n");
     {
@@ -85,7 +94,7 @@ int main(int argc, char** argv) {
         printf("█ S = ");
         PrintElem(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrDelete \n");
     {
@@ -94,7 +103,7 @@ int main(int argc, char** argv) {
         printf("█ S = ");
         PrintElem(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ ClearString \n");
     {
@@ -106,7 +115,7 @@ int main(int argc, char** argv) {
         printf("█ 清空 S 后：");
         StrEmpty(S) ? printf(" S 为空！！\n") : printf(" S 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ Concat \n");
     {
@@ -120,18 +129,7 @@ int main(int argc, char** argv) {
         printf("█ Tmp = ");
         PrintElem(Tmp);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
-}
-
-// 测试函数，打印字符串
-void PrintElem(HString S) {
-    int i;
-    
-    for(i = 0; i <= S.length-1; i++) {
-        printf("%c", S.ch[i]);
-    }
-    
-    printf("\n");
 }

@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
         printf("█ 作为示范，创建项数为 %d 的多项式Pb...\n", n);
         CreatPolyn(&Pb, n, "TestData_Pb.txt");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ PrintPolyn \n");
@@ -26,14 +26,14 @@ int main(int argc, char **argv) {
         printf("█ 一元多项式 Pb = ");
         PrintPolyn(Pb);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ PolynLength \n");
     {
         printf("█ La 的项数为 %d ，Lb 的项数为 %d\n", PolynLength(Pa), PolynLength(Pb));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ AddPolyn \n");
@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
         printf("█ Pa = Pa + Pb = ");
         PrintPolyn(Pa);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ SubtractPolyn \n");
@@ -59,7 +59,7 @@ int main(int argc, char **argv) {
         printf("█ Pa = Pa - Pb = ");
         PrintPolyn(Pa);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ MultiplyPolyn \n");
@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
         printf("█ Pa = Pa * Pb = ");
         PrintPolyn(Pa);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
     return 0;
 }

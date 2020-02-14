@@ -33,12 +33,14 @@ typedef int Status;
 /* 布尔类型 */
 typedef int Boolean;
 
+/* 全局变量*/
+extern Boolean debug;   // 是否使用debug模式
 
 // 读取数据
 int ReadData(FILE* fp, char* format, ...);
 
 // 摁下回车键以继续运行
-void PressEnterToContinue();
+void PressEnterToContinue(Boolean debug);
 
 // 函数暂停一段时间，time不代表具体的时间
 void Wait(long time);

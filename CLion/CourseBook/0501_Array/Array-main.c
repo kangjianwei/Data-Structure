@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
         printf("█ 初始化一个维度为<2,3,4>的三维数组 A ...\n");
         InitArray(&A, 3, 2, 3, 4);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 Assign \n");
@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
         printf("█ A = ");
         ArrayPrint(A);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 Value \n");
@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
         Value(A, &x, 1, 1, 1);
         printf("█ A[1][1][1] = %d\n", x);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 DestroyArray \n");
@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
         printf("█ 销毁 A 后：");
         A.dim != 0 ? printf(" A 存在！\n") : printf(" A 不存在！！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     return 0;

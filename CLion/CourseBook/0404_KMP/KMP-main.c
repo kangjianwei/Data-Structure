@@ -1,7 +1,16 @@
 #include "KMP.h"                        //**▲04 串**//
 
 // 测试函数，打印字符串
-void PrintElem(SString S);
+void PrintElem(SString S) {
+    int i;
+    
+    for(i = 1; i <= S[0]; i++) {
+        printf("%c", S[i]);
+    }
+    
+    printf("\n");
+}
+
 
 int main(int argc, char** argv) {
     char* s = "abaaabcaabaabcacabaabcaabaabcac";
@@ -50,15 +59,4 @@ int main(int argc, char** argv) {
     printf("从%d个字符起，T 在 S 中第一次匹配成功的位置为 %d\n", pos, j);
     
     return 0;
-}
-
-// 测试函数，打印字符串
-void PrintElem(SString S) {
-    int i;
-    
-    for(i = 1; i <= S[0]; i++) {
-        printf("%c", S[i]);
-    }
-    
-    printf("\n");
 }

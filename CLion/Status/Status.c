@@ -2,6 +2,11 @@
 #include <string.h>
 #include <stdarg.h> // 提供宏va_list、va_start、va_arg、va_end
 #include <ctype.h>  // 提供isprint原型
+#include "Status.h"
+
+/* 全局变量*/
+Boolean debug = FALSE;  // 是否使用debug模式。测试时可设置为TRUE，发布时可设置为FALSE(修改debug值后，一般需要重新生成静态库)。
+
 
 /*
  * 这是自定义的数据录入函数，用于从文件fp中读取格式化的输入
@@ -135,20 +140,17 @@ int ReadData(FILE* fp, char* format, ...) {
 }
 
 // 摁下回车键以继续运行
-void PressEnterToContinue() {
-    int debug = 1;
-    
+void PressEnterToContinue(Boolean debug) {
     fflush(stdin);
     
-    printf("\nPress Enter to Continue...");
-    
-    // 处于测试阶段时，可以让debug=1，自动添加换行，便于测试
+    // 处于测试阶段时，可以让debug=TRUE，手动输入换行，以便让程序暂停下来，观察每一步的输出
     if(debug) {
-        printf("\n");
-        
-        // 发布时，可以让debug=0，手动输入换行，否则让程序暂停下来，观察每一步的输出
-    } else {
+        printf("\nPress Enter to Continue...");
         getchar();
+        
+        // 发布时，可以让debug=FALSE，自动添加换行，直接出结果
+    } else {
+        printf("\n");
     }
     
     fflush(stdin);

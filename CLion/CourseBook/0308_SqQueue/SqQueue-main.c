@@ -2,7 +2,10 @@
 #include "SqQueue.h"    //**▲03 栈和队列**//
 
 // 测试函数，打印整型
-void PrintElem(QElemType e);
+void PrintElem(QElemType e) {
+    printf("%d ", e);
+}
+
 
 int main(int argc, char** argv) {
     SqQueue Q;
@@ -14,13 +17,13 @@ int main(int argc, char** argv) {
         printf("█ 初始化循环顺序队列 Q ...\n");
         InitQueue(&Q);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 QueueEmpty \n");
     {
         QueueEmpty(Q) ? printf("█ Q 为空！！\n") : printf("█ Q 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 EnQueue \n");
     {
@@ -29,21 +32,21 @@ int main(int argc, char** argv) {
             printf("█ 元素 \"%2d\" 入队Q...\n", 2 * i);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 QueueTraverse \n");
     {
         printf("█ Q 中的元素为：Q = ");
         QueueTraverse(Q, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 QueueLength \n");
     {
         i = QueueLength(Q);
         printf("█ Q 的长度为 %d \n", i);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 DeQueue \n");
     {
@@ -52,14 +55,14 @@ int main(int argc, char** argv) {
         printf("█ Q 中的元素为：Q = ");
         QueueTraverse(Q, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GetHead \n");
     {
         GetHead(Q, &e);
         printf("█ 队头元素的值为 \"%d\" \n", e);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 ClearQueue \n");
     {
@@ -71,7 +74,7 @@ int main(int argc, char** argv) {
         printf("█ 清空 Q 后：");
         QueueEmpty(Q) ? printf(" Q 为空！！\n") : printf(" Q 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 DestroyQueue \n");
     {
@@ -83,12 +86,7 @@ int main(int argc, char** argv) {
         printf("█ 销毁 Q 后：");
         Q.base != NULL ? printf(" Q 存在！\n") : printf(" Q 不存在！！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
-}
-
-// 测试函数，打印整型
-void PrintElem(QElemType e) {
-    printf("%d ", e);
 }

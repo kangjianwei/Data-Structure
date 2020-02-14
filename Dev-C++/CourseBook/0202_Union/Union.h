@@ -8,9 +8,8 @@
 #define UNION_H
 
 #include <stdio.h>
-#include "Status.h"     //**▲01 绪论**//
+#include "Status.h"   //**▲01 绪论**//
 #include "SqList.h"   //**▲02 线性表**//
-
 
 /*
  * ████████ 算法2.1 ████████

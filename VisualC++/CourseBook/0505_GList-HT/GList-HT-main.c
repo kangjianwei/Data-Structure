@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include "GList-HT.h"        //**▲05 数组和广义表**//
 
-void PrintElem(AtomType e);                //打印广义表原子
+// 打印广义表原子
+void PrintElem(AtomType e) {
+    printf("%c ", e);
+}
+
 
 int main(int argc, char** argv) {
     GList Tmp, G;
@@ -13,7 +17,7 @@ int main(int argc, char** argv) {
         printf("█ 创建空的广义表 Tmp ...\n");
         InitGList(&Tmp);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GListEmpty \n");
     {
@@ -22,7 +26,7 @@ int main(int argc, char** argv) {
         tag = GListEmpty(Tmp);
         tag ? printf("█ Tmp 为空！\n") : printf("█ Tmp 不为空！！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 CreateGList \n");
     {
@@ -42,7 +46,7 @@ int main(int argc, char** argv) {
         StrAssign(S3, s3);
         CreateGList(&g3, S3);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 InsertFirst \n");
     {
@@ -51,7 +55,7 @@ int main(int argc, char** argv) {
         InsertFirst(&Tmp, g2);
         InsertFirst(&Tmp, g1);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 Traverse \n");
     {
@@ -59,14 +63,14 @@ int main(int argc, char** argv) {
         Traverse(Tmp, PrintElem);
         printf("\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 PrintGList \n");
     {
         printf("█ 带括号输出广义表 Tmp = ");
         PrintGList(Tmp);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 CopyGList \n");
     {
@@ -74,7 +78,7 @@ int main(int argc, char** argv) {
         CopyGList(&G, Tmp);
         PrintGList(G);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 DeleteFirst \n");
     {
@@ -88,19 +92,19 @@ int main(int argc, char** argv) {
         printf("█ Tmp = ");
         PrintGList(Tmp);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GListLength \n");
     {
         printf("█ 广义表 G 的长度为： %d \n", GListLength(G));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GListDepth \n");
     {
         printf("█ 广义表 G 的深度为： %d\n", GListDepth(G));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GetHead \n");
     {
@@ -110,7 +114,7 @@ int main(int argc, char** argv) {
         H = GetHead(G);
         PrintGList(H);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 GetTail \n");
     {
@@ -120,7 +124,7 @@ int main(int argc, char** argv) {
         T = GetTail(G);
         PrintGList(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ 函数 DestroyGList \n");
     {
@@ -132,11 +136,7 @@ int main(int argc, char** argv) {
         printf("█ 销毁 G 后：");
         G ? printf(" G 存在！\n") : printf(" G 不存在！！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
-}
-
-void PrintElem(AtomType e) {
-    printf("%c ", e);
 }

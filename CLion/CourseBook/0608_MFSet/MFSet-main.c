@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
         printf("█ 初始化二元关系 R2 ...\n");
         initial_relation(&R2, "TestData_R2.txt");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PrintSet \n");
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
         printf("█ 输出集合 S ...\n");
         PrintSet(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     // 方案一
@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
         printf("█ 输出集合 S ...\n");
         PrintSet(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     // 方案二
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
 //        printf("█ 输出集合 S ...\n");
 //        PrintSet(S);
 //    }
-//    PressEnterToContinue();
+//    PressEnterToContinue(debug);
     
     return OK;
 }

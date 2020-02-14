@@ -24,14 +24,14 @@ int main(int argc, char** argv) {
         printf("█ 初始化扩展的线性链表 L ...\n");
         InitList(&L);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListEmpty \n");
     {
         ListEmpty(L) ? printf("█ L 为空！！\n") : printf("█ L 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListInsert \n");
@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
             ListInsert(&L, i, 2 * i);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListTraverse \n");
@@ -49,14 +49,14 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListLength \n");
     {
         printf("█ L 的长度为 %d \n", ListLength(L));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListDelete \n");
@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
         printf("█ 删除后的元素：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ LocateElem \n");
@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
         r = LocateElem(L, 7, CmpGreater);
         printf("█ L 中第一个元素值大于 \"7\" 的元素是 \"%d\" \n", r->data);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PriorElem \n");
@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
             printf("█ 元素 \"%d\" 的前驱不存在！\n", r->data);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ NextElem \n");
@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
             printf("█ 元素 \"%d\" 的后继不存在！\n", r->data);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ MakeNode \n");
@@ -121,7 +121,7 @@ int main(int argc, char** argv) {
         printf("█ 创建结点 \"300\" ...\n");
         MakeNode(&s, 300);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ InsFirst \n");
@@ -131,7 +131,7 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ DelFirst \n");
@@ -142,7 +142,7 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ InsBefore \n");
@@ -154,7 +154,7 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ InsAfter \n");
@@ -166,7 +166,7 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ Append \n");
@@ -179,7 +179,7 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
 
     printf("████████ Remove \n");
@@ -190,7 +190,7 @@ int main(int argc, char** argv) {
         printf("█ L 中的元素为：L = ");
         ListTraverse(L, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
 
     
     printf("████████ ClearList \n");
@@ -203,7 +203,7 @@ int main(int argc, char** argv) {
         printf("清空 L 后：");
         ListEmpty(L) ? printf(" L 为空！！\n") : printf(" L 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ DestroyList \n");
@@ -217,7 +217,7 @@ int main(int argc, char** argv) {
         L.head != NULL && L.tail != NULL ? printf(" L 存在！\n") : printf(" L 不存在！！\n");
         
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
 }

@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
         CreateSMatrix(&M, "TestData_M.txt");
         CreateSMatrix(&N, "TestData_N.txt");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 PrintSMatrix \n");
@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
         printf("█ N = \n");
         PrintSMatrix(N);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 CopySMatrix \n");
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
         printf("█ Tmp = \n");
         PrintSMatrix(Tmp);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 AddSMatrix \n");
@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
         printf("█ Q1 = M + N = \n");
         PrintSMatrix(Q1);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 SubtSMatrix \n");
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
         printf("█ Q2 = M - N = \n");
         PrintSMatrix(Q2);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 MultSMatrix \n");
@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
         printf("█ Q3 = M * N = \n");
         PrintSMatrix(Q3);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 TransposeSMatrix \n");
@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
         printf("█ T = M(T) = \n");
         PrintSMatrix(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ 函数 DestroySMatrix \n");
@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
         printf("█ 销毁 M 后：");
         !M.mu && !M.nu && !M.tu ? printf(" M 不存在！！\n") : printf(" M 存在！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
 }

@@ -87,14 +87,14 @@ int main(int argc, char* argv[]) {
         printf("█ S = ");
         StrPrint_4_21(S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrLength \n");
     {
         i = StrLength_4_21(S);
         printf("█ S 的长度为 %d \n", i);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrCopy \n");
     {
@@ -103,7 +103,7 @@ int main(int argc, char* argv[]) {
         printf("█ T = ");
         StrPrint_4_21(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ StrCompare \n");
     {
@@ -111,7 +111,7 @@ int main(int argc, char* argv[]) {
         i = StrCompare_4_21(S, T);
         i == 0 ? printf("█ S==T\n") : (i < 0 ? printf("█ S<T\n") : printf("█ S>T\n"));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     printf("████████ SubString \n");
     {
@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
         printf("█ Sub = ");
         StrPrint_4_21(Sub);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ Concat \n");
@@ -137,7 +137,7 @@ int main(int argc, char* argv[]) {
         printf("█ Tmp = ");
         StrPrint_4_21(Tmp);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
 }

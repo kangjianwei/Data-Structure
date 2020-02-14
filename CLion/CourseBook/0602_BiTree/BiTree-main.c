@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
         printf("█ 初始化空二叉树 T ...\n");
         InitBiTree(&T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ CreateBiTree \n");
@@ -25,14 +25,14 @@ int main(int argc, char* argv[]) {
         printf("█ 按先序序列创建二叉树 T ...\n");
         CreateBiTree(&T, "TestData_Pre.txt");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ BiTreeDepth \n");
     {
         printf("█ 二叉树 T 的深度为：%d \n", BiTreeDepth(T));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PrintTree \n");
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
         printf("█ 按二叉树的结构打印树 T ...\n");
         PrintTree(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PreOrderTraverse \n");
@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
         printf("█ 前序遍历二叉树 T = ");
         PreOrderTraverse(T, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ InOrderTraverse \n");
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
         printf("█ 中序遍历二叉树 T = ");
         InOrderTraverse(T, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PostOrderTraverse \n");
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
         printf("█ 后序遍历二叉树 T = ");
         PostOrderTraverse(T, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ LevelOrderTraverse \n");
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
         printf("█ 层序遍历二叉树 T = ");
         LevelOrderTraverse(T, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ Value \n");
@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
         TElemType e = 'F';
         printf("█ 结点 %c 的值为 %c\n", e, Value(T, e));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ Assign \n");
@@ -91,14 +91,14 @@ int main(int argc, char* argv[]) {
         Assign(T, e, value);
         PrintTree(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ Root \n");
     {
         printf("█ T 的根结点为 %c\n", Root(T));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ Parent \n");
@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) {
         TElemType e = 'E';
         printf("█ 结点 %c 的双亲为：%c \n", e, Parent(T, e));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ LeftChild、RightChild \n");
@@ -114,7 +114,7 @@ int main(int argc, char* argv[]) {
         TElemType e = 'E';
         printf("█ 结点 %c 的左孩子结点值为：%c ，右孩子结点值为：%c\n", e, LeftChild(T, e), RightChild(T, e));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ LeftSibling \n");
@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
         TElemType e = 'I';
         printf("█ 结点 %c 的左兄弟为：%c\n", e, LeftSibling(T, e));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ RightSibling \n");
@@ -130,7 +130,7 @@ int main(int argc, char* argv[]) {
         TElemType e = 'H';
         printf("█ 结点 %c 的右兄弟为：%c\n", e, RightSibling(T, e));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ InsertChild \n");
@@ -157,7 +157,7 @@ int main(int argc, char* argv[]) {
         InsertChild(T, p2, 0, c2);
         PrintTree(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ DeleteChild \n");
@@ -173,7 +173,7 @@ int main(int argc, char* argv[]) {
         DeleteChild(T, p2, 0);
         PrintTree(T);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ClearBiTree、BiTreeEmpty \n");
@@ -186,7 +186,7 @@ int main(int argc, char* argv[]) {
         printf("█ 清空后：");
         BiTreeEmpty(T) ? printf("T 为空！\n") : printf("T 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
 }

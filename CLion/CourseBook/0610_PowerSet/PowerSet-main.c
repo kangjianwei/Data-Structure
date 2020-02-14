@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
         printf("█ 创建集合 A ...\n");
         CreatePowerSet(&A, "TestData_A.txt");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PrintPowerSet \n");
@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
         printf("█ 输出集合 A = ");
         PrintPowerSet(A);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ GetPowerSet \n");
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
         printf("█ 依次输出求取的幂集中的各子集...\n");
         GetPowerSet(1, A, B);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return OK;
 }

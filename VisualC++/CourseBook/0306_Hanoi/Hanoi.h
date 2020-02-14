@@ -19,12 +19,6 @@ typedef struct {
     int high[3];    // 三座塔的高度（持有的盘子数量）
 } Tower;
 
-// 汉诺塔
-Tower T;
-
-// 统计移动步数
-int gStep;
-
 
 /*
  * ████████ 算法3.5 ████████

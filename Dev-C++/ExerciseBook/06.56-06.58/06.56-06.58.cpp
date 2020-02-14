@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
         printf("█ 测试方法Algo_6_56：输出树的先序序列：");
         PreTraverse(Thr);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("███题 6.57 验证...███\n");
@@ -92,7 +92,7 @@ int main(int argc, char* argv[]) {
         printf("█ 测试方法Algo_6_57：输出树的后序序列：");
         PosTraverse(Thr);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("███题 6.58 验证...███\n");
@@ -134,7 +134,7 @@ int main(int argc, char* argv[]) {
         printf("█ 插入完成后的中序全线索二叉树为：");
         InOrderTraverse_Thr(Thr, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
 }
 

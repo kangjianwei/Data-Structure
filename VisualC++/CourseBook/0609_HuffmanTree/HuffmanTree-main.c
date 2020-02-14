@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
         printf("█ 初始化环境，主要是初始化权值信息...\n");
         InitEnvironment(&w, &n, "TestData_HT.txt");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ HuffmanCodeing \n");
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
         printf("█ 打印赫夫曼编码...\n");
         PrintHuffmanCode(HT, HC);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ HuffmanDecoding \n");
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
         printf("█ 打印权值信息...\n");
         PrintWeight(HC, weight, n);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return OK;
 }

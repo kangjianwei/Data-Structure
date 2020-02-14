@@ -23,17 +23,6 @@
 /* 类型定义 */
 typedef LinkList EventList;     //事件链表类型，定义为有序链表
 
-/* 全局变量（变量名称前面都加了g标记） */
-int gTotalTime;     // 累计客户数
-int gCustomerNum;   // 累计客户逗留时间
-
-int gCloseTime;     // 关门时间,假设银行每天营业8小时，480分
-
-EventList gEv;      // 事件表，存储所有待处理事件
-Event     gEn;      // 当前正在处理的事件
-
-LinkQueue gQ[N+1];  // 4个客户队列,0号单元弃用
-
 
 /*
  * ████████ 算法3.6 ████████

@@ -25,14 +25,14 @@ int main(int argc, char** argv) {
         printf("█ 初始化单链表 S ...\n");
         InitList(space, &S);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListEmpty \n");
     {
         ListEmpty(space, S) ? printf("█ S 为空！！\n") : printf("█ S 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListInsert \n");
@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
             ListInsert(space, S, i, 2 * i);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListTraverse \n");
@@ -50,14 +50,14 @@ int main(int argc, char** argv) {
         printf("█ S 中的元素为：S = ");
         ListTraverse(space, S, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListLength \n");
     {
         printf("█ S 的长度为 %d \n", ListLength(space, S));
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ListDelete \n");
@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
         printf("█ 删除后的元素：S = ");
         ListTraverse(space, S, PrintElem);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ GetElem \n");
@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
         GetElem(space, S, 4, &e);
         printf("█ S 中第 4 个位置的元素为 \"%d\" \n", e);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ LocateElem \n");
@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
         GetElem(space, S, i, &e);
         printf("█ S 中第一个元素值大于 \"7\" 的元素是 \"%d\" \n", e);
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ PriorElem \n");
@@ -106,7 +106,7 @@ int main(int argc, char** argv) {
             printf("█ 元素 \"%d\" 的前驱不存在！\n", cur_e);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ NextElem \n");
@@ -119,7 +119,7 @@ int main(int argc, char** argv) {
             printf("█ 元素 \"%d\" 的后继不存在！\n", cur_e);
         }
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ ClearList \n");
@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
         printf("█ 清空 S 后：");
         ListEmpty(space, S) ? printf(" S 为空！！\n") : printf(" S 不为空！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     
     printf("████████ DestroyList \n");
@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
         printf("█ 销毁 S 后：");
         S!=0 ? printf(" S 存在！\n") : printf(" S 不存在！！\n");
     }
-    PressEnterToContinue();
+    PressEnterToContinue(debug);
     
     return 0;
 }
