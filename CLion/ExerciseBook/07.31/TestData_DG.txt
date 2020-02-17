@@ -1,0 +1,6 @@
+图类型→0（有向图）
+顶点数→23
+弧数→32
+弧是否带有其他信息→0
+顶点集→【A，B，C，D，E，F，G，H，I，J，K，L，M，N，O，P，Q，R，S，T，U，V，W】
+弧的集合→【A，B】【B，D】【D，A】【B，C】【C，E】【E，F】【F，C】【C，G】【G，C】【E，U】【U，V】【V，W】【W，C】【V，E】【D，O】【D，I】【O，I】【I，J】【J，N】【N，O】【J，H】【N，R】【R，Q】【Q，R】【A，L】【L，M】【M，K】【K，L】【P，S】【S，P】【P，T】【T，S】
