@@ -420,8 +420,8 @@ Status FastTransposeSMatrix(RLSMatrix M, RLSMatrix* T) {
         return ERROR;
     }
     
-    num  = (int*) malloc(M.nu * sizeof(int));
-    copt = (int*) malloc(M.nu * sizeof(int));
+    num  = (int*) malloc((M.nu + 1) * sizeof(int));
+    copt = (int*) malloc((M.nu + 1) * sizeof(int));
     
     // 初始化数组num
     for(col = 1; col <= M.nu; ++col) {
