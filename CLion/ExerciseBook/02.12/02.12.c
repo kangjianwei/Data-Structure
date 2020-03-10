@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
     mark = Algo_2_12(A, B);
     if(mark < 0) {
         printf("==> A<B\n");
-    } else if(mark > 1) {
+    } else if(mark > 0) {
         printf("==> A>B\n");
     } else {
         printf("A==B\n");
