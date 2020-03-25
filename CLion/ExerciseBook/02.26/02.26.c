@@ -5,7 +5,7 @@
 /*
  * 题2.26
  *
- * 求交集：C=A∩B。
+ * 求交集：C=A∩B，要求新链表另辟空间。
  */
 Status Algo_2_26(LinkList La, LinkList Lb, LinkList* Lc);
 
@@ -17,15 +17,18 @@ int main(int argc, char* argv[]) {
     LinkList La, Lb, Lc;
     int i;
     
-    int a[10] = {1, 2, 2, 3, 4, 4, 9, 9, 10, 12};
-    int b[10] = {1, 1, 2, 2, 3, 3, 4, 5, 12, 13};
+    // 0号单元存储的是数组长度
+    int a[] = {10, 1, 3, 5, 7,  9, 11, 13, 15, 17, 19};
+    int b[] = {8,  1, 5, 7, 8, 10, 15, 17, 20};
     
-    // 准备测试数据
+    // 准备测试数据，同一表中的元素值各不相同
     InitList(&La);
     InitList(&Lb);
-    for(i = 1; i <= 10; i++) {
-        ListInsert(La, i, a[i - 1]);
-        ListInsert(Lb, i, b[i - 1]);
+    for(i = 1; i <= a[0]; i++) {
+        ListInsert(La, i, a[i]);
+    }
+    for(i = 1; i <= b[0]; i++) {
+        ListInsert(Lb, i, b[i]);
     }
     printf("La = ");
     ListTraverse(La, PrintElem);
@@ -41,16 +44,18 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-// 求交集：C=A∩B
+
+// 求交集：C=A∩B，要求新链表另辟空间。
 Status Algo_2_26(LinkList La, LinkList Lb, LinkList* Lc) {
     LinkList pa, pb, pc, s;
+    
+    // 初始化Lc
+    InitList(Lc);
     
     // 确保La和Lb存在
     if(La == NULL || Lb == NULL) {
         return ERROR;
     }
-    
-    InitList(Lc);
     
     pa = La->next;
     pb = Lb->next;
@@ -63,16 +68,16 @@ Status Algo_2_26(LinkList La, LinkList Lb, LinkList* Lc) {
         } else if(pa->data > pb->data) {
             pb = pb->next;
         } else {
-            // Lc中元素可能重复
+            // 创建新结点存放交集元素
             s = (LinkList) malloc(sizeof(LNode));
             if(s == NULL) {
                 exit(OVERFLOW);
             }
             s->data = pa->data;
             s->next = NULL;
-            
+    
+            // 将交集元素插入到Lc
             pc->next = s;
-            
             pc = pc->next;
             
             pa = pa->next;
@@ -85,5 +90,5 @@ Status Algo_2_26(LinkList La, LinkList Lb, LinkList* Lc) {
 
 // 测试函数，打印元素
 void PrintElem(ElemType e) {
-    printf("%d ", e);
+    printf("%2d ", e);
 }
