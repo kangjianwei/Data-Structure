@@ -69,12 +69,12 @@ Status Algo_2_23_1(LinkList La, LinkList Lb, LinkList* Lc) {
 
     // 初始化Lc
     InitList(Lc);
-
+    
     // 确保La和Lb存在
-    if(La == NULL || Lb == NULL || Lc == NULL) {
+    if(La == NULL || Lb == NULL) {
         return ERROR;
     }
-
+    
     pb = Lb;
 
     // 先遍历La和Lb的共同部分
@@ -119,7 +119,7 @@ Status Algo_2_23_2(LinkList La, LinkList Lb, LinkList* Lc) {
     InitList(Lc);
 
     // 确保La和Lb存在
-    if(La == NULL || Lb == NULL || Lc == NULL) {
+    if(La == NULL || Lb == NULL) {
         return ERROR;
     }
 

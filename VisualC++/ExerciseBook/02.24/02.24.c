@@ -51,12 +51,13 @@ int main(int argc, char* argv[]) {
 Status Algo_2_24(LinkList La, LinkList Lb, LinkList* Lc) {
     LinkList pa, pb;
     
+    // 初始化Lc
+    InitList(Lc);
+    
     // 确保La和Lb存在
-    if(La == NULL || Lb == NULL || Lc == NULL) {
+    if(La == NULL || Lb == NULL) {
         return ERROR;
     }
-    
-    InitList(Lc);
     
     // 遍历La和Lb
     while(La->next!=NULL && Lb->next!=NULL){

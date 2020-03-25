@@ -5,7 +5,7 @@
 /*
  * 题2.25
  *
- * 求交集：C=A∩B，要求新链表另辟空间。
+ * 求交集：C=A∩B，要求新顺序表另辟空间。
  */
 Status Algo_2_25(SqList La, SqList Lb, SqList* Lc);
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-// 求交集：C=A∩B，要求新链表另辟空间。
+// 求交集：C=A∩B，要求新顺序表另辟空间。
 Status Algo_2_25(SqList La, SqList Lb, SqList* Lc) {
     int i, j, k;
     
@@ -65,9 +65,10 @@ Status Algo_2_25(SqList La, SqList Lb, SqList* Lc) {
             i++;
         } else if(La.elem[i] > Lb.elem[j]) {
             j++;
+            
             // 如果La和Lb中的元素相等
         } else {
-            // 将共同元素插入到Lc
+            // 将交集元素插入到Lc
             ListInsert(Lc, k, La.elem[i]);
             k++;
             i++;
