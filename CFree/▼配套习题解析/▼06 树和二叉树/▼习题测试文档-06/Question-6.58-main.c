@@ -45,35 +45,40 @@ int main(int argc, char *argv[])
 ┗━━━━━━━━━━━━━━*/
 Status Algo_6_58(ThrBiTree p, ThrBiTree x)
 {
-	ThrBiTree pre_p, suc_p, x_first;
-	if(p->LTag==Link && p->RTag==Link)
-		return ERROR;
-		
-	if(p->LTag!=Link)							//p结点无左子树，x插入为左子树 
+	ThrBiTree pre_p, x_first, lp_first;
+	
+	x_first = x;							// 寻找树x中序遍历第一个结点
+	while(x_first->lchild && x_first->LTag!=Thread)
+		x_first = x_first->lchild;
+	
+	pre_p = p->lchild;	// 记下p的左结点，可能是左线索，也可能是左子树 
+	
+	if(p->LTag==Thread)	// 如果p结点无左子树，则将x插入为左子树 
 	{
-		pre_p = p->lchild;						//pre_p标记为p的前驱		
-		p->LTag = Link;							//修改标记
+		/* 此时，pre_p为p的前驱线索 */	
+		
+		p->LTag = Link;	// 修改标记，从线索到子树 
 		p->lchild = x;
-		
-		x_first = x;							//寻找树x中序遍历第一个结点
-		while(x_first->lchild && x_first->LTag!=Thread)
-			x_first = x_first->lchild;
-		x_first->lchild = pre_p;				//修改树x最左结点前驱 
+			
+		x_first->lchild = pre_p;	// 修改树x最左结点的前驱 
 							 
-		x->rchild = p;							//修改x的后继
+		x->rchild = p;	// 修改x的后继线索 
 	}
-	else										//p结点有左子树，x插入为右子树 
+	else				// p结点有左子树，则将该子树摘下，并将其插入为x的右子树 
 	{
-		suc_p = p->rchild;
-		p->RTag = Link;
-		p->rchild = x;
+		/* 此时，pre_p为p的左子树 */
 		
-		x_first = x;							//寻找树x中序遍历第一个结点
-		while(x_first->lchild && x_first->LTag!=Thread)
-			x_first = x_first->lchild;
-		x_first->lchild = p;
+		x->RTag = Link;
+		x->rchild = pre_p;	// 摘下p的左子树，作为x的右子树 
 		
-		x->rchild = suc_p;						//修改x的后继	
+		lp_first = p;		// 寻找p的左子树的中序序列中第一个结点
+		while(lp_first->LTag==Link)
+			lp_first = lp_first->lchild;
+		
+		x_first->lchild = lp_first->lchild;	// 修改树x最左结点的前驱 
+		lp_first->lchild = x;				// lp_first的左线索更新为x 
+		
+		p->lchild = x;	// 更新p的左子树 
 	}
 	
 	return OK;
