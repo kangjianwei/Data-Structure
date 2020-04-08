@@ -23,6 +23,9 @@ int main(int argc, char* argv[]) {
         
         printf("█ 中序遍历中序全线索二叉树...\n");
         InOrderTraverse_Thr(Thr, PrintElem);
+        
+        // 逆中序遍历，用来验证前驱线索是否正确
+        InOrderTraverse_Thr_Inverse(Thr, PrintElem);
     }
     PressEnterToContinue(debug);
 }

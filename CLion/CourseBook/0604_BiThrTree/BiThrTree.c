@@ -87,6 +87,8 @@ Status InOrderThreading(BiThrTree* Thrt, BiThrTree T) {
  * ████████ 算法6.5 ████████
  *
  * 中序遍历中序全线索二叉树（非递归算法）。
+ *
+ * 注：该方法可以验证后继线索是否正确
  */
 Status InOrderTraverse_Thr(BiThrTree T, Status(Visit)(TElemType)) {
     BiThrTree p = T->lchild;    // p指向二叉树根结点（不同于线索二叉树的头结点）
@@ -112,6 +114,8 @@ Status InOrderTraverse_Thr(BiThrTree T, Status(Visit)(TElemType)) {
         // 访问右子树
         p = p->rchild;
     }
+    
+    printf("\n");
     
     return OK;
 }
@@ -150,31 +154,81 @@ static void CreateTree(BiThrTree* T, FILE* fp) {
  * 中序全线索化的内部实现
  */
 static void InTheading(BiThrTree p) {
-    if(p) {
-        InTheading(p->lchild);  // 线索化左子树
-        
-        // 如果当前结点的左子树为空，则需要建立前驱线索
-        if(!p->lchild) {
-            p->LTag = Thread;
-            p->lchild = pre;
-            
-            // 如果左子树不为空，添加左孩子标记（教材中缺少这一步骤）
-        } else {
-            p->LTag = Link;
-        }
-        
-        // 如果前驱结点的右子树为空，则为前驱结点建立后继线索
-        if(!pre->rchild) {
-            pre->RTag = Thread;
-            pre->rchild = p;
-    
-            // 如果右子树不为空，添加右孩子标记（教材中缺少这一步骤）
-        } else {
-            p->RTag = Link;
-        }
-        
-        pre = p;                // pre向前挪一步
-        
-        InTheading(p->rchild);  // 线索化右子树
+    if(p == NULL) {
+        return;
     }
+    
+    InTheading(p->lchild);  // 线索化左子树
+    
+    // 如果当前结点的左子树为空，则需要建立前驱线索
+    if(!p->lchild) {
+        p->LTag = Thread;
+        p->lchild = pre;
+    
+        /*
+         * 如果左子树不为空，添加左孩子标记。
+         * 教材中缺少这一步骤，这会导致出现一些幽灵BUG。
+         * 这里的Link枚举值是零，如果编译器在动态分配内存后恰好把该标记初始化为0，
+         * 那么效果跟手动设置Link是一样的。但如果编译器没有初始化零值，那么就会出BUG。
+         */
+    } else {
+        p->LTag = Link;
+    }
+    
+    // 如果前驱结点的右子树为空，则为前驱结点建立后继线索
+    if(!pre->rchild) {
+        pre->RTag = Thread;
+        pre->rchild = p;
+    
+        /*
+         * 如果右子树不为空，添加右孩子标记。
+         * 教材中缺少这一步骤，这会导致出现一些幽灵BUG，理由同上。
+         */
+    } else {
+        pre->RTag = Link;
+    }
+    
+    pre = p;                // pre向前挪一步
+    
+    InTheading(p->rchild);  // 线索化右子树
+}
+
+
+/*━━━━━━━━━━━━━━━━━━━━━━ 辅助函数 ━━━━━━━━━━━━━━━━━━━━━━*/
+
+/*
+ * 逆中序遍历中序全线索二叉树（非递归算法）。
+ *
+ * 注：该方法可以验证前驱线索是否正确
+ */
+Status InOrderTraverse_Thr_Inverse(BiThrTree T, Status(Visit)(TElemType)) {
+    BiThrTree p = T->rchild;    // p指向二叉树中序遍历的最后一个结点，这也相当于是T的左子树上中序遍历的最后一个结点
+    
+    // 空树或遍历结束时，p==T
+    while(p != T) {
+        // 访问结点p，该结点是某棵左子树上中序遍历的最后一个结点
+        if(!Visit(p->data)) {
+            return ERROR;
+        }
+        
+        // 如果存在前驱线索（即没有左子树）
+        while(p->LTag == Thread && p->lchild != T) {
+            p = p->lchild;   // 将p指向其前驱
+            Visit(p->data);  // 访问前驱结点
+        }
+        
+        // 向左前进一步，可能遇到左子树，也可能遇到终点T
+        p = p->lchild;
+        
+        // 如果没有遇到终点，即存在左子树，则找到该左子树上中序遍历的最后一个结点
+        if(p != T) {
+            while(p->RTag == Link) {
+                p = p->rchild;
+            }
+        }
+    }
+    
+    printf("\n");
+    
+    return OK;
 }
