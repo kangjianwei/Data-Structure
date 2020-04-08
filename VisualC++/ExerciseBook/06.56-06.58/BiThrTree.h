@@ -70,6 +70,8 @@ Status InOrderThreading(BiThrTree* Thrt, BiThrTree T);
  * ████████ 算法6.5 ████████
  *
  * 中序遍历中序全线索二叉树T（非递归算法）。
+ *
+ * 注：该方法可以验证后继线索是否正确
  */
 Status InOrderTraverse_Thr(BiThrTree T, Status(Visit)(TElemType));
 
@@ -85,5 +87,15 @@ static void CreateTree(BiThrTree* T, FILE* fp);
  * 中序全线索化的内部实现
  */
 static void InTheading(BiThrTree p);
+
+
+/*━━━━━━━━━━━━━━━━━━━━━━ 辅助函数 ━━━━━━━━━━━━━━━━━━━━━━*/
+
+/*
+ * 逆中序遍历中序全线索二叉树（非递归算法）。
+ *
+ * 注：该方法可以验证前驱线索是否正确
+ */
+Status InOrderTraverse_Thr_Inverse(BiThrTree T, Status(Visit)(TElemType));
 
 #endif

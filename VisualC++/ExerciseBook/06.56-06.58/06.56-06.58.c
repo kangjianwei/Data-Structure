@@ -113,6 +113,8 @@ int main(int argc, char* argv[]) {
         
         printf("█ 中序遍历中序全线索二叉树：");
         InOrderTraverse_Thr(Thr, PrintElem);
+        // 逆中序遍历，用来验证前驱线索是否正确
+//        InOrderTraverse_Thr_Inverse(Thr, PrintElem);
     
         printf("█ ===============================================\n");
     
@@ -124,7 +126,9 @@ int main(int argc, char* argv[]) {
     
         printf("█ 中序遍历中序全线索二叉树：");
         InOrderTraverse_Thr(Thrx, PrintElem);
-    
+        // 逆中序遍历，用来验证前驱线索是否正确
+//        InOrderTraverse_Thr_Inverse(Thrx, PrintElem);
+        
         printf("█ ===============================================\n");
     
         p = T->lchild->rchild;
@@ -133,6 +137,8 @@ int main(int argc, char* argv[]) {
     
         printf("█ 插入完成后的中序全线索二叉树为：");
         InOrderTraverse_Thr(Thr, PrintElem);
+        // 逆中序遍历，用来验证前驱线索是否正确
+//        InOrderTraverse_Thr_Inverse(Thr, PrintElem);
     }
     PressEnterToContinue(debug);
     
@@ -237,8 +243,8 @@ Status Algo_6_58(BiThrTree p, BiThrTree x, BiThrTree Thrx) {
     BiThrTree xFirst;    // 树x的中序序列的第一个结点
     BiThrTree xLast;     // 树x的中序序列的最后一个结点
     
-    BiThrTree lt;       // p的左子树
-    BiThrTree ltFirst;  // 子树lt的中序序列的第一个结点
+    BiThrTree lt;        // p的左子树
+    BiThrTree ltFirst;   // 子树lt的中序序列的第一个结点
     
     if(p==NULL || x==NULL) {
         return ERROR;
@@ -282,6 +288,10 @@ Status Algo_6_58(BiThrTree p, BiThrTree x, BiThrTree Thrx) {
         x->RTag = Link;     // 将lt插入为x的右子树
         x->rchild = lt;
     
+        /*
+         * 这里需要一点：
+         * 左子树lt变成子树x的根结点的右子树时，lt中序序列上最后一个结点的后继线索不会变
+         */
         xFirst->lchild = ltFirst->lchild;   // 接管子树lt的左线索
         ltFirst->lchild = x;                // 子树lt的左线索指向x
     
