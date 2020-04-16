@@ -57,3 +57,7 @@ add_subdirectory(0708_ArticulationPoints)
 add_subdirectory(0709_TopologicalSorting)
 add_subdirectory(0710_CriticalPathMethod)
 add_subdirectory(0711_ShortestPaths)
+
+add_subdirectory(0801_BoundaryTagMethod)
+add_subdirectory(0802_BuddySystem)
+add_subdirectory(0803_GarbageCollection)
