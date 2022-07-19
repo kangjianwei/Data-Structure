@@ -45,7 +45,7 @@ Status DestroyQueue(SqQueue* Q) {
     (*Q).base = NULL;
     (*Q).front = (*Q).rear = 0;
     
-    return OK;
+    return ERROR;
 }
 
 /*
